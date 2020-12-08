@@ -1,0 +1,15 @@
+.TopBar {
+  
+  border-bottom: 1px solid #DEDEDE;
+  &_Container {
+    display: flex;
+    align-items: center;
+    height: 65px;
+  }
+  &_Logo {
+    flex-grow: 1;
+  }
+  &_Icons {
+    flex-grow: 8;
+  }
+}

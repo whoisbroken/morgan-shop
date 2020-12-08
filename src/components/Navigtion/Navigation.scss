@@ -1,0 +1,16 @@
+.Nav {
+  height: 65px;
+  font-size: 0.875rem;
+  &_List {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  &_Item {
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    margin: 0 12px;
+    height: 100%;
+  }
+}
