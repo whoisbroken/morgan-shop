@@ -8,16 +8,16 @@ const Navigation = () => {
       <nav className="Nav">
         <ul className="Nav_List">
           <li className="Nav_Item">
-            <NavLink to="/interior-ceiling">Interior ceiling</NavLink>
+            <NavLink className="Nav_Link" to="/interior-ceiling">Interior ceiling</NavLink>
           </li>
           <li className="Nav_Item">
-            <NavLink to="/floor-lamps">Floor lamps</NavLink>
+            <NavLink className="Nav_Link" to="/floor-lamps">Floor lamps</NavLink>
           </li>
           <li className="Nav_Item">
-            <NavLink to="/exterior-ceiling">Exterior ceilings</NavLink>
+            <NavLink className="Nav_Link" to="/exterior-ceiling">Exterior ceilings</NavLink>
           </li>
           <li className="Nav_Item">
-            <NavLink to="/table-lamps">Table lamps</NavLink>
+            <NavLink className="Nav_Link" to="/table-lamps">Table lamps</NavLink>
           </li>
         </ul>
       </nav>

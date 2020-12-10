@@ -1,20 +1,27 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
+import { NavLink } from "react-router-dom";
 import "./TopBar.scss";
-import Navigtion from '../Navigtion/Navigtion';
+import Navigation from '../Navigation/Navigation.jsx';
+
 
 class TopBar extends Component {
   render() {
     return (
       <div className="TopBar">  
         <div className="TopBar_Container Container">
-          <img className="TopBar_Logo" src="../../images/Logo.svg" alt="Logo"/>
-          <Navigtion />
-          <div className="TopBar_Icons">Icons</div>
+          <div>
+            <NavLink to="/">LOGO</NavLink>
+          </div>
+          <Navigation />
+          <div className="TopBar_Icons">
+            Icons   
+          </div>
         </div>
       </div>
     );
   }
 }
+
 
 export default TopBar;
