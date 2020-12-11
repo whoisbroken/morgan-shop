@@ -10,6 +10,18 @@
     flex-grow: 1;
   }
   &_Icons {
+    display: flex; 
+    justify-content: flex-end;
+    align-items: center;
     flex-grow: 8;
+  }
+  &_Icon {
+    margin-left: 70px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  &_Counter {
+    text-align: center;
   }
 }
