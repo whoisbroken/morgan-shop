@@ -3,6 +3,10 @@ import { Switch, Route } from "react-router-dom";
 
 import TableLamps from "./components/TableLamps/TableLamps";
 import FloorLamps from "./components/FloorLamps/FloorLamps";
+import Login from "./components/Login/Login";
+import SignUp from "./components/SignUp/SignUp";
+import Cart from "./components/Cart/Cart";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
 import Main from './components/Main/Main';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
@@ -23,10 +27,16 @@ const Routes = () => {
         Interior ceiling
       </Route>
       <Route path="/login">
-        login
+        <Login />
+      </Route>
+      <Route path="/signup">
+        <SignUp />
       </Route>
       <Route path="/cart">
-        cart
+        <Cart />
+      </Route>
+      <Route path="/reset-pass">
+        <ResetPassword />
       </Route>
       <Route path="/">
         <Main />

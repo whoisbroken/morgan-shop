@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-
 import { connect } from "react-redux";
 
+import { fetchProducts, fetchCategories } from '../../redux/actions/action';
+
+
 class FloorLamps extends Component {
+  componentDidMount() {
+    return this.props.products.length === 0 ? this.props.fetchProducts() : null
+  }
+
   render() {
     return (
       <div>
@@ -26,4 +32,9 @@ const mapStateToProps = (state) => ({
   categories: state.data.categories
 })
 
-export default connect(mapStateToProps)(FloorLamps);
+const mapDispatchToProps = (dispatch) => ({
+  fetchProducts: () => dispatch(fetchProducts()),
+  fetchCategories: () => dispatch(fetchCategories()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(FloorLamps);

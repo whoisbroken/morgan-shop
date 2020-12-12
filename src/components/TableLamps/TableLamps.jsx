@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-
 import { connect } from "react-redux";
+
 import { fetchProducts, fetchCategories } from '../../redux/actions/action';
 
 
 class TableLamps extends Component {
   componentDidMount() {
-    this.props.fetchProducts();
-    this.props.fetchCategories();
+    return this.props.products.length === 0 ? this.props.fetchProducts() : null
   }
+
   render() {
   return (
     <div>
