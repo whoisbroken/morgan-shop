@@ -14,8 +14,8 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <ScrollToTop />
-          <TopBar />
-          <Routes />
+        <TopBar />
+        <Routes />
       </Router>
     </Provider>
   );     

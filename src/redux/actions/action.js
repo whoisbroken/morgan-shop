@@ -8,6 +8,8 @@ const fetchCategoriesStart = { type: ACTION_TYPES.FETCH_CATEGORIES_START };
 const fetchCategoriesSuccess = { type: ACTION_TYPES.FETCH_CATEGORIES_SUCCESS };
 const fetchCategoriesError = { type: ACTION_TYPES.FETCH_CATEGORIES_ERROR };
 
+
+// Fetch data
 export const fetchProducts = () => {
   return (dispatch) => {
     dispatch(fetchProductsStart);
@@ -37,3 +39,20 @@ export const fetchCategories = () => {
   
   }
 };
+
+// Cart
+export const addToCart = (product) => ({
+  type: ACTION_TYPES.ADD_TO_CART,
+  payload: {
+      id: product.id, 
+      name: product.name, 
+      alias: product.alias, 
+      price: product.price, 
+      image: product.image,
+  }
+})
+
+export const removeFromCart = (id) => ({
+  type: ACTION_TYPES.REMOVE_FROM_CART,
+  payload: id
+})

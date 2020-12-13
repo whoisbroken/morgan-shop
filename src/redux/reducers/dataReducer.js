@@ -2,9 +2,8 @@ import { ACTION_TYPES } from '../actions/actionTypes';
 
 const initialState = {
   products: [],
-  productsById: {},
   categories: [],
-  categoriesById: {},
+  productListSize: 8,
 }
 
 export const dataReducer = (state = initialState, action) => {
