@@ -1,5 +1,5 @@
 .TopBar {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   border-bottom: 1px solid #DEDEDE;
   &_Container {
     display: flex;
@@ -8,6 +8,7 @@
   }
   &_Logo {
     flex-grow: 1;
+    margin-right: 36px;
   }
   &_Icons {
     display: flex; 

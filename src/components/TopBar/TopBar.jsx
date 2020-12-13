@@ -12,7 +12,7 @@ class TopBar extends Component {
       <div className="TopBar">
         <div className="TopBar_Container Container">
           <NavLink to="/">
-            <img src={Logo} alt="Logo" />
+            <img className="TopBar_Logo" src={Logo} alt="Logo" />
           </NavLink>
           <Navigation />
           <TopBarIcons />

@@ -9,12 +9,17 @@ const Main = () => {
     <>
       <main className="Main">
           <div className="Main_Container Container">
-            <NavLink className="TableLamps" to="/table-lamps">
+            <NavLink className="Main_TableLamps" to="/table-lamps">
               <h3 className="Main_Category_Title">Table lamps</h3>
             </NavLink>  
-            <NavLink className="FloorLamps" to="/floor-lamps">floor lamps</NavLink>
-            <NavLink className="ExteriorCeiling" to="/exterior-ceiling">exterior ceiling</NavLink>
-            <NavLink className="InteriorCeiling" to="/interior-ceiling">interior ceiling</NavLink>
+            <NavLink className="Main_FloorLamps" to="/floor-lamps">
+              <h3 className="Main_Category_Title">Floor lamps</h3></NavLink>
+            <NavLink className="Main_ExteriorCeiling" to="/exterior-ceiling">
+              <h3 className="Main_Category_Title">Exterior ceiling</h3>
+            </NavLink>
+            <NavLink className="Main_InteriorCeiling" to="/interior-ceiling">
+              <h3 className="Main_Category_Title">Interior ceiling</h3>
+            </NavLink>
           </div>
         </main>
         <section>

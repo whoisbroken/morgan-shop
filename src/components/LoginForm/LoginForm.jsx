@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
+import "./LoginForm.scss";
+import "../TopBarIcons/TopBarIcons";
+
 const LoginForm = () => {
   return (
     <form className="LoginForm">
@@ -14,7 +17,7 @@ const LoginForm = () => {
       <button className="LoginForm_Submit" type="submit">LOG IN</button>
       <div className="LoginForm_Box">
         <p className="LoginForm_Box_Text">Don't have an account?</p>
-        <NavLink className="LoginForm_Box_Link" to="/signup">
+        <NavLink className="LoginForm_Box_Link" to="/signup" activeClassName="LoginForm_Box_Link_active">
           Create an account
         </NavLink>  
       </div>
