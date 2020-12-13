@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 
 import TableLamps from "./components/TableLamps/TableLamps";
 import FloorLamps from "./components/FloorLamps/FloorLamps";
+import ExteriorCeiling from "./components/ExteriorCeiling/ExteriorCeiling";
+import InteriorCeiling from "./components/InteriorCeiling/InteriorCeiling";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import Cart from "./components/Cart/Cart";
@@ -21,10 +23,10 @@ const Routes = () => {
         <FloorLamps />
       </Route>
       <Route path="/exterior-ceiling">
-        Exterior ceiling
+        <ExteriorCeiling />
       </Route>
       <Route path="/interior-ceiling">
-        Interior ceiling
+        <InteriorCeiling />
       </Route>
       <Route path="/login">
         <Login />

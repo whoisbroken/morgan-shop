@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-import "./FloorLamps.scss";
+import "./ExteriorCeiling.scss";
 import AddIcon from "../../images/add.svg"
 import { fetchProducts, fetchCategories } from '../../redux/actions/action';
 
 
-class FloorLamps extends Component {
+class ExteriorCeiling extends Component {
   componentDidMount() {
     return this.props.products.length === 0 ? this.props.fetchProducts() : null
   }
 
   render() {
     return (
-      <div className="FloorLamps">
-        <div className="FloorLamps_Container Container">
-          <div className="FloorLamps_Sort">
+      <div className="ExteriorCeiling">
+        <div className="ExteriorCeiling_Container Container">
+          <div className="ExteriorCeiling_Sort">
               <span className="Sort-Title">Sort by:</span>
               <select className="Sort-Select">
                   <option value={"hightToLow"} className="Sort-Option">Price hight to low</option>
@@ -23,23 +23,23 @@ class FloorLamps extends Component {
                   <option value={"sortNewness"} className="Sort-Option">Newness</option>
               </select>
           </div>
-          <ul className="FloorLamps_List" >
+          <ul className="ExteriorCeiling_List" >
             {
-              this.props.products.filter((product => product.categoryId === "66ef32ef-03ad-48c2-b295-bdfc018b5881"))
+              this.props.products.filter((product => product.categoryId === "f6e7591c-6743-432d-992b-c3bff746848d"))
                 .map(({ id, categoryId, name, alias, price, image, timeStamp }) => (
 
-                  <li className="FloorLamps_Item" key={id}>
+                  <li className="ExteriorCeiling_Item" key={id}>
                     {
                       // // props.isBasket ?
                         // <ButtonIcon clazz='Product-Button' img={remove} alt='Remove item' /> :
-                        <button className='FloorLamps_Button'  alt='Add item'>
+                        <button className='ExteriorCeiling_Button'  alt='Add item'>
                           <img src={AddIcon} alt="add"/>
                         </button>
                     }
-                    <img className="FloorLamps_Img" src={image} alt="" />
-                    <div className="FloorLamps_Box">
-                      <p className="FloorLamps_Name">{name}</p>
-                      <p className="FloorLamps_Price">{+ price ? `£` + parseFloat(price).toFixed(2) : null}</p>
+                    <img className="ExteriorCeiling_Img" src={image} alt="" />
+                    <div className="ExteriorCeiling_Box">
+                      <p className="ExteriorCeiling_Name">{name}</p>
+                      <p className="ExteriorCeiling_Price">{+ price ? `£` + parseFloat(price).toFixed(2) : null}</p>
                     </div>
                   </li>
                 ))
@@ -61,4 +61,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchCategories: () => dispatch(fetchCategories()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(FloorLamps);
+export default connect(mapStateToProps, mapDispatchToProps)(ExteriorCeiling);
