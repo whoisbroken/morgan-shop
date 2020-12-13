@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from 'react-redux';
 
+
+import ScrollToTop from "../../utils/ScrollToTop";
 import "./App.scss";
 import { store } from "../../redux/store";
 import TopBar from '../TopBar/TopBar.jsx';
@@ -11,8 +13,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <TopBar />
-        <Routes />
+        <ScrollToTop />
+          <TopBar />
+          <Routes />
       </Router>
     </Provider>
   );     

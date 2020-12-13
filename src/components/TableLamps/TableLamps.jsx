@@ -30,8 +30,6 @@ class TableLamps extends Component {
 
                   <li className="TableLamps_Item" key={id}>
                     {
-                      // // props.isBasket ?
-                        // <ButtonIcon clazz='Product-Button' img={remove} alt='Remove item' /> :
                         <button className='TableLamps_Button'  alt='Add item'>
                           <img src={AddIcon} alt="add"/>
                         </button>

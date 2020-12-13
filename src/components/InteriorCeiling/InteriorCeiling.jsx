@@ -30,8 +30,6 @@ class InteriorCeiling extends Component {
 
                   <li className="InteriorCeiling_Item" key={id}>
                     {
-                      // // props.isBasket ?
-                        // <ButtonIcon clazz='Product-Button' img={remove} alt='Remove item' /> :
                         <button className='InteriorCeiling_Button'  alt='Add item'>
                           <img src={AddIcon} alt="add"/>
                         </button>

@@ -30,8 +30,6 @@ class ExteriorCeiling extends Component {
 
                   <li className="ExteriorCeiling_Item" key={id}>
                     {
-                      // // props.isBasket ?
-                        // <ButtonIcon clazz='Product-Button' img={remove} alt='Remove item' /> :
                         <button className='ExteriorCeiling_Button'  alt='Add item'>
                           <img src={AddIcon} alt="add"/>
                         </button>

@@ -15,38 +15,38 @@ import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 
 const Routes = () => {
   return ( 
-    <Switch>
-      <Route path="/table-lamps">
-        <TableLamps />
-      </Route>
-      <Route path="/floor-lamps">
-        <FloorLamps />
-      </Route>
-      <Route path="/exterior-ceiling">
-        <ExteriorCeiling />
-      </Route>
-      <Route path="/interior-ceiling">
-        <InteriorCeiling />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/signup">
-        <SignUp />
-      </Route>
-      <Route path="/cart">
-        <Cart />
-      </Route>
-      <Route path="/reset-pass">
-        <ResetPassword />
-      </Route>
-      <Route path="/">
-        <Main />
-      </Route>
-      <Route path="*">
-        <NotFoundPage />
-      </Route>
-    </Switch>
+      <Switch>
+        <Route path="/table-lamps">
+          <TableLamps />
+        </Route>
+        <Route path="/floor-lamps">
+          <FloorLamps />
+        </Route>
+        <Route path="/exterior-ceiling">
+          <ExteriorCeiling />
+        </Route>
+        <Route path="/interior-ceiling">
+          <InteriorCeiling />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/cart">
+          <Cart />
+        </Route>
+        <Route path="/reset-pass">
+          <ResetPassword />
+        </Route>
+        <Route path="/">
+          <Main />
+        </Route>
+        <Route path="*">
+          <NotFoundPage />
+        </Route>
+      </Switch>
   );
 };
 
