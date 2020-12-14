@@ -14,6 +14,7 @@
     height: 64px;
     padding: 0 30px;
     margin: 0 16px;
+    cursor: pointer;
   }
   &_Link {
     position: relative;
@@ -45,5 +46,10 @@
         opacity: 1;
       }
     }
+  }
+  &_Counter {
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    line-height: 22px;
   }
 }

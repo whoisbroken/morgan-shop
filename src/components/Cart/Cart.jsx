@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 import "./Cart.scss";
-import CartImg from "../../images/cart-img.png";
+import EmptyCart from "../../pages/EmptyCart/EmptyCart";
 
 class Cart extends Component {
   render() {
     return (
       <div className="Cart">  
         <div className="Cart_Container Container">
-          <h2 className="Cart_Title">Basket</h2>
-          <img className="Cart_Img" src={CartImg} alt="Cart"/>
-          <p className="Cart_Info">Your basket is empty</p>
-          <button className="Cart_Button">Start shopping</button>
+          {this.props.cart.length === 0 ?
+           <EmptyCart /> :
+           <div>non empty cart</div>
+          } 
         </div>
       </div>
     );
   }
 }
 
-export default Cart;
+const mapStateToProps = (state) => ({
+  products: state.data.products,
+  categories: state.data.categories,
+  cart: state.cart,
+})
+
+export default connect(mapStateToProps)(Cart);

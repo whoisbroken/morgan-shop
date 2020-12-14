@@ -21,14 +21,13 @@ const TopBarIcons = (props) => {
       <NavLink className="TopBarIcons_Link" to="/cart" 
               activeClassName="TopBarIcons_Link_active">
         <img src={CartIcon} alt="Cart" />
-        <p className="TopBarIcons_Counter">{props.cart.length}</p>
+        <span className="TopBarIcons_Counter">{props.cart.length}</span>
       </NavLink>
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  category: state.productCategories,
   cart: state.cart
 })
 

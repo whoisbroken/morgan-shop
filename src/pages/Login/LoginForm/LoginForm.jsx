@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 
 import "./LoginForm.scss";
-import "../TopBarIcons/TopBarIcons";
 
 const LoginForm = () => {
   return (
