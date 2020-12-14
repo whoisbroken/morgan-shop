@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 import ProductsList from "../ProductsList/ProductsList.jsx";
-import { fetchProducts, fetchCategories } from '../../redux/actions/action';
-import { addToCart, removeFromCart } from "../../redux/actions/action";
+import { fetchProducts, fetchCategories, addToCart, removeFromCart  } from '../../redux/actions/action';
 
 class Products extends Component {
   componentDidMount() {

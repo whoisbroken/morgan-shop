@@ -3,12 +3,21 @@ import { connect } from "react-redux";
 
 import "./InteriorCeiling.scss";
 import AddIcon from "../../images/add.svg"
-import { fetchProducts, fetchCategories } from '../../redux/actions/action';
+import removeIcon from "../../images/remove.svg"
+import { fetchProducts, fetchCategories, addToCart, removeFromCart } from '../../redux/actions/action';
 
 
 class InteriorCeiling extends Component {
   componentDidMount() {
     return this.props.products.length === 0 ? this.props.fetchProducts() : null
+  }
+    
+  handleAddToCart = (product) => {
+    this.props.addToCart(product)
+  }
+  
+  handleRemoveFromCart = (id) => {
+    this.props.removeFromCart(id)
   }
 
   render() {
@@ -26,18 +35,29 @@ class InteriorCeiling extends Component {
           <ul className="InteriorCeiling_List" >
             {
               this.props.products.filter((product => product.categoryId === "dc4437c1-364b-4ba5-992a-15f55ca2d8eb"))
-                .map(({ id, categoryId, name, alias, price, image, timeStamp }) => (
-
-                  <li className="InteriorCeiling_Item" key={id}>
-                    {
-                        <button className='InteriorCeiling_Button'  alt='Add item'>
-                          <img src={AddIcon} alt="add"/>
+                .map((product) => (
+                  <li className="InteriorCeiling_Item" key={product.id}>
+                     {
+                      this.props.cart.find(item => item.id === product.id) ?
+                        <button
+                          className='ProductList_Button'
+                          alt='symbol'
+                          onClick={() => this.handleRemoveFromCart(product.id)}
+                        >
+                          <img src={removeIcon} alt="remove" />
+                        </button> :
+                        <button
+                          className='ProductList_Button'
+                          alt='symbol'
+                          onClick={() => this.handleAddToCart(product)}
+                        >
+                          <img src={AddIcon} alt="add" />
                         </button>
                     }
-                    <img className="InteriorCeiling_Img" src={image} alt="" />
+                    <img className="InteriorCeiling_Img" src={product.image} alt="" />
                     <div className="InteriorCeiling_Box">
-                      <p className="InteriorCeiling_Name">{name}</p>
-                      <p className="InteriorCeiling_Price">{+ price ? `£` + parseFloat(price).toFixed(2) : null}</p>
+                      <p className="InteriorCeiling_Name">{product.name}</p>
+                      <p className="InteriorCeiling_Price">{+ product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
                     </div>
                   </li>
                 ))
@@ -51,12 +71,15 @@ class InteriorCeiling extends Component {
 
 const mapStateToProps = (state) => ({
   products: state.data.products,
-  categories: state.data.categories
+  categories: state.data.categories,
+  cart: state.cart,
 })
 
 const mapDispatchToProps = (dispatch) => ({
   fetchProducts: () => dispatch(fetchProducts()),
   fetchCategories: () => dispatch(fetchCategories()),
+  addToCart: (product) => dispatch(addToCart(product)),
+  removeFromCart: (id) => dispatch(removeFromCart(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(InteriorCeiling);
