@@ -2,17 +2,19 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 
 import "./LoginForm.scss";
+import GoggleIcon from "../../../images/ic_google.svg";
+import FacebookIcon from "../../../images/ic_facebook.svg";
 
 const LoginForm = () => {
   return (
     <form className="LoginForm">
       <label className="LoginForm_Label" htmlFor=""  >Email</label>
-      <input className="LoginForm_Input" type="text" placeholder="Enter your email" />
+      <input className="LoginForm_Input" type="email" placeholder="Enter your email" />
       <label className="LoginForm_Label" htmlFor=""  >Password</label>
-      <NavLink className="LoginForm_Box_Link" to="/reset-pass">
+      <NavLink className="LoginForm_Link" to="/reset-pass">
         Forgotten your password?
       </NavLink>  
-      <input className="LoginForm_Input" type="text" placeholder="Enter your password" />
+      <input className="LoginForm_Input" type="password" placeholder="Enter your password" />
       <button className="LoginForm_Submit" type="submit">LOG IN</button>
       <div className="LoginForm_Box">
         <p className="LoginForm_Box_Text">Don't have an account?</p>
@@ -20,10 +22,14 @@ const LoginForm = () => {
           Create an account
         </NavLink>  
       </div>
-      <p className="LoginForm_Divider">or</p>
+      <span className="LoginForm_Divider">or</span>
       <div className="LoginForm_Buttons">
-        <button className="LoginForm_Buttons">With Google</button>
-        <button className="LoginForm_Buttons">With Facebook</button>
+        <button className="LoginForm_Button">
+          <img src={GoggleIcon} alt="GoggleIcon" className="LoginForm_Buttons_Icon"/>
+          With Google</button>
+        <button className="LoginForm_Button">
+          <img src={FacebookIcon} alt="FacebookIcon" className="LoginForm_Buttons_Icon"/>
+          With Facebook</button>
       </div>
     </form>
   );

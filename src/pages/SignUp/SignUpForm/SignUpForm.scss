@@ -1,28 +1,33 @@
-.LoginForm {
+.SignUpForm {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-width: 368px;
+  max-width: 368px;
   position: relative;
+  margin-bottom: 76px;
   &_Link {
     position: absolute;
     right: 0;
     top: 92px;
     text-decoration-line: underline;
   }
+
   &_Label {
     padding-bottom: 2px;
   }
+
   &_Input {
     font-family: "Poppins";
     border: 1px solid #6D6D6D;
     width: 100%;
     padding: 10px 12px;
     margin-bottom: 27px;
+
     &::placeholder {
       color: #6D6D6D;
     }
   }
+
   &_Submit {
     margin-bottom: 18px;
     padding: 11px 0;
@@ -40,7 +45,7 @@
     transition: .3s ease;
     cursor: pointer;
 
-    &:hover { 
+    &:hover {
       background: #424242;
     }
 
@@ -48,9 +53,29 @@
       background: #6D6D6D;
     }
   }
+
+  &_Privacy {
+    font-family: "Poppins";
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    margin-bottom: 12px;
+    color: #6D6D6D;
+    & span {
+      text-decoration-line: underline;
+      font-family: "Poppins";
+      font-size: 12px;
+      line-height: 22px;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+    color: #6D6D6D;
+    }
+  }
+
   &_Box_Link {
     text-decoration-line: underline;
   }
+
   &_Box {
     width: 100%;
     display: flex;
@@ -58,12 +83,14 @@
     justify-content: space-between;
     margin-bottom: 20px;
   }
+
   &_Divider {
     text-align: center;
     width: 100%;
     color: #DEDEDE;
     position: relative;
     margin-bottom: 18px;
+
     &:after {
       content: "";
       position: absolute;
@@ -71,9 +98,10 @@
       width: 167px;
       height: 1px;
       background: #DEDEDE;
-    top: 10px;
+      top: 10px;
 
     }
+
     &:before {
       content: "";
       position: absolute;
@@ -81,9 +109,10 @@
       width: 170px;
       height: 1px;
       background: #DEDEDE;
-    top: 10px;
+      top: 10px;
     }
   }
+
   &_Buttons {
     display: flex;
     align-items: center;
@@ -91,6 +120,7 @@
     width: 100%;
 
   }
+
   &_Button {
     border: 1px solid #6D6D6D;
     padding: 12px 29px;
@@ -101,6 +131,6 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-   
+
   }
 }
