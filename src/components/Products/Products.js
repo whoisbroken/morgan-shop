@@ -1,40 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from "react-redux";
 
+
+import SortProducts from "../SortProducts/SortProducts";
 import ProductsList from "../ProductsList/ProductsList.jsx";
 import { fetchProducts, fetchCategories, addToCart, removeFromCart  } from '../../redux/actions/action';
 
-class Products extends Component {
-  componentDidMount() {
-    return this.props.products.length === 0 ? this.props.fetchProducts() : null
-  }
-
-  handleAddToCart = (product) => {
-    this.props.addToCart(product)
-  }
+const Products = (props) => {
+ const handleAddToCart = (product) => {
+    props.addToCart(product)
+  };
   
-  handleRemoveFromCart = (id) => {
-    this.props.removeFromCart(id)
-  }
-
-  render() {
+  const handleRemoveFromCart = (id) => {
+    props.removeFromCart(id)
+  };
     return (
     <div>
+      <SortProducts /> 
       <ProductsList 
-        products={this.props.products}
-        categories={this.props.categories}
-        cart={this.props.cart}
-        handleAddToCart={this.handleAddToCart}
-        handleRemoveFromCart={this.handleRemoveFromCart}
+        products={props.products}
+        categories={props.categories}
+        cart={props.cart}
+        handleAddToCart={handleAddToCart}
+        handleRemoveFromCart={handleRemoveFromCart}
+        sortProducts={props.sortProducts}
+        fetchProducts={props.fetchProducts}
       />
     </div>
   );
-  }
+
 };
+
 const mapStateToProps = (state) => ({
   products: state.data.products,
   categories: state.data.categories,
   cart: state.cart,
+  sortProducts: state.sortProducts.sortBy,
 })
 
 const mapDispatchToProps = (dispatch) => ({

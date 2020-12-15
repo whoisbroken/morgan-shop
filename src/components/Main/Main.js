@@ -22,9 +22,8 @@ const Main = () => {
             </NavLink>
           </div>
         </main>
-        <section>
+        <section className="Products">
           <div className="Container">
-            <div>Sort by</div>
             <Products />
           </div>
         </section>

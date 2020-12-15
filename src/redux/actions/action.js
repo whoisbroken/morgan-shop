@@ -56,3 +56,9 @@ export const removeFromCart = (id) => ({
   type: ACTION_TYPES.REMOVE_FROM_CART,
   payload: id
 })
+
+//Sort product
+export const sortProducts = (payload) => ({
+    type: ACTION_TYPES.SORT_PRODUCTS,
+    payload,
+})

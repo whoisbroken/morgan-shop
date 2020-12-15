@@ -1,79 +1,88 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from "react-redux";
 
 import "./FloorLamps.scss";
 import AddIcon from "../../images/add.svg"
 import removeIcon from "../../images/remove.svg"
+import SortProducts from "../SortProducts/SortProducts";
 import { fetchProducts, fetchCategories, addToCart, removeFromCart } from '../../redux/actions/action';
 
 
-class FloorLamps extends Component {
-  componentDidMount() {
-    return this.props.products.length === 0 ? this.props.fetchProducts() : null
-  }
-    
-  handleAddToCart = (product) => {
-    this.props.addToCart(product)
+const FloorLamps = (props) => {
+   const handleAddToCart = (product) => {
+    props.addToCart(product)
   }
   
-  handleRemoveFromCart = (id) => {
-    this.props.removeFromCart(id)
+  const handleRemoveFromCart = (id) => {
+    props.removeFromCart(id)
   }
 
-  render() {
+ const [sortBy, setSortBy] = useState(props.sortProducts.value)
+
+    if (props.products) {
+        if (sortBy === "hightToLow") props.products.sort((a, b) => b.price - a.price)
+        else if (sortBy === "lowToHight") props.products.sort((a, b) => a.price - b.price)
+        else if (sortBy === "sortNewness") props.products.sort((a, b) => {
+            let dataA = new Date(a.timeStamp)
+            let dataB = new Date(b.timeStamp)
+            return dataB - dataA
+        })
+    }
+
+    useEffect(() => {
+        setSortBy(props.sortProducts.value)
+        return () => {
+            setSortBy("")
+        }
+    }, [props.sortProducts.value])
+
     return (
       <div className="FloorLamps">
         <div className="FloorLamps_Container Container">
-          <div className="FloorLamps_Sort">
-              <span className="Sort-Title">Sort by:</span>
-              <select className="Sort-Select">
-                  <option value={"hightToLow"} className="Sort-Option">Price hight to low</option>
-                  <option value={"lowToHight"} className="Sort-Option">Price low to hight</option>
-                  <option value={"sortNewness"} className="Sort-Option">Newness</option>
-              </select>
-          </div>
+          <SortProducts />
           <ul className="FloorLamps_List" >
-            {
-              this.props.products.filter((product => product.categoryId === "66ef32ef-03ad-48c2-b295-bdfc018b5881"))
+            { props.products.length !== 0 ? 
+              props.products.filter((product => product.categoryId === "66ef32ef-03ad-48c2-b295-bdfc018b5881"))
                 .map((product) => (
 
                   <li className="FloorLamps_Item" key={product.id}>
-                     {
-                      this.props.cart.find(item => item.id === product.id) ?
+                     { 
+                      props.cart.find(item => item.id === product.id) ?
                         <button
                           className='ProductList_Button'
                           alt='symbol'
-                          onClick={() => this.handleRemoveFromCart(product.id)}
+                          onClick={() => handleRemoveFromCart(product.id)}
                         >
                           <img src={removeIcon} alt="remove" />
                         </button> :
                         <button
                           className='ProductList_Button'
                           alt='symbol'
-                          onClick={() => this.handleAddToCart(product)}
+                          onClick={() => handleAddToCart(product)}
                         >
                           <img src={AddIcon} alt="add" />
                         </button>
                     }
-                    <img className="FloorLamps_Img" src={product.image} alt="" />
+                    <img className="FloorLamps_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt="" />
                     <div className="FloorLamps_Box">
                       <p className="FloorLamps_Name">{product.name}</p>
                       <p className="FloorLamps_Price">{+ product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
                     </div>
                   </li>
-                ))
+                )) : 
+                props.fetchProducts()
             }
           </ul>
         </div>
       </div>
     );
-  }
 };
 
 const mapStateToProps = (state) => ({
   products: state.data.products,
   categories: state.data.categories,
   cart: state.cart,
+  sortProducts: state.sortProducts.sortBy,
 })
 
 const mapDispatchToProps = (dispatch) => ({
