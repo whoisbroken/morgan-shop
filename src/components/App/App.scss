@@ -67,11 +67,6 @@ a {
     max-width: 750px;
   }
 }
-@media (max-width: 767px) {
-  .Container {
-    max-width: none;
-  }
-}
 
 .Link {
   font-size: 12px;
@@ -86,6 +81,7 @@ a {
 @media(max-width: 767px) {
   .Container {
     padding: 0 8px;
+    max-width: none;
   }
   .Link {
     font-size: 10px;

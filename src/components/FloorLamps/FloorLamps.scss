@@ -1,7 +1,10 @@
+@import '../../constants/Variables.scss';
+
 .FloorLamps {
   &_Sort {
     margin-top: 26px;
   }
+
   &_List {
     display: flex;
     flex-wrap: wrap;
@@ -9,15 +12,14 @@
     margin-left: -16px;
   }
 
-
-
   &_Item {
-    background: #F0F0F0;
+    background: $whiteGray;
     flex-basis: calc(25% - 16px);
     margin-left: 16px;
     margin-bottom: 16px;
     position: relative;
     max-width: 272px;
+
     &_Button {
       position: absolute;
       top: 12px;
@@ -50,5 +52,14 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .FloorLamps {
+    &_Item {
+      flex-basis: 31%;
+    }
   }
 }

@@ -1,3 +1,5 @@
+@import '../../constants/Variables.scss';
+
 .TableLamps {
   &_Sort {
     margin-top: 26px;
@@ -11,12 +13,7 @@
   }
 
   &_Item {
-   
-
-  }
-
-  &_Item {
-    background: #F0F0F0;
+    background: $whiteGray;
     flex-basis: calc(25% - 16px);
     margin-left: 16px;
     margin-bottom: 16px;
@@ -54,5 +51,13 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
+  }
+}
+
+@media (max-width: 992px) {
+  .TableLamps {
+    &_Item {
+      flex-basis: 31%;
+    }
   }
 }

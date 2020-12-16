@@ -1,3 +1,5 @@
+@import '../../constants/Variables.scss';
+
 .Main {
   &_Container {
     display: grid;
@@ -5,15 +7,18 @@
     grid-template-columns: 326px 326px 468px;
     grid-gap: 8px;
   }
+
   &_Title {
     font-weight: 400;
   }
+
   &_TableLamps {
     padding: 16px 20px;
-    color: #fff;
+    color: $white;
     grid-column: 1 / 3;
     background-image: url("../../images/TableLamps.png");
   }
+
   &_FloorLamps {
     padding: 16px 30px;
     grid-column-start: 3;
@@ -21,6 +26,7 @@
     grid-row-end: 3;
     background-image: url("../../images/FloorLamps.png");
   }
+
   &_ExteriorCeiling {
     padding: 19px 18px;
     grid-column-start: 1;
@@ -28,6 +34,7 @@
     grid-row-end: 2;
     background-image: url("../../images/ExteriorCeiling.png");
   }
+
   &_InteriorCeiling {
     padding: 19px 25px;
     grid-column-start: 2;
@@ -38,53 +45,139 @@
 }
 
 @media (max-width: 1190px) {
-  .Main{
+  .Main {
     &_Container {
       display: grid;
       grid-template-rows: 323px 323px;
       grid-template-columns: 326px 326px 326px;
       grid-gap: 8px;
     }
+
     &_FloorLamps {
       background-position: center;
     }
   }
 }
 
-@media (max-width: 323px) {
-  .Main{
+@media (max-width: 1190px) {
+  .Main {
     &_Container {
       display: grid;
-      grid-template-rows: 323px 323px 323px;
-      grid-template-columns: 326px 323px;
+      grid-template-rows: 323px 323px;
+      grid-template-columns: 326px 326px 260px;
       grid-gap: 8px;
     }
+
+    &_FloorLamps {
+      background-position: center;
+    }
+  }
+
+}
+
+
+@media (max-width: 992px) {
+  .Main {
+    &_Container {
+      grid-template-rows: 220px 220px;
+      grid-template-columns: 216px 240px 250px;
+      grid-gap: 6px;
+    }
+
+    &_Category_Title {
+      font-size: 14px;
+    }
+
     &_TableLamps {
       padding: 16px 20px;
-      color: #fff;
+      color: $white;
       grid-column: 1 / 3;
-      background-image: url("../../images/TableLamps.png");
+      background-position: center;
     }
+
+    &_ExteriorCeiling {
+      display: flex;
+      align-items: flex-end;
+      background-position: bottom;
+    }
+
+    &_InteriorCeiling {
+      display: flex;
+      align-items: flex-end;
+      background-position: bottom;
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  .Main {
+    &_Container {
+      grid-template-rows: 220px 220px 220px;
+      grid-template-columns: 49% 50%;
+    }
+
+    &_TableLamps {
+      padding: 16px 20px;
+      color: $white;
+      grid-column: 1 / 3;
+    }
+
     &_FloorLamps {
       padding: 16px 30px;
       grid-column-start: 2;
       grid-row-start: 2;
       grid-row-end: 4;
-      background-image: url("../../images/FloorLamps.png");
     }
+
     &_ExteriorCeiling {
       padding: 19px 18px;
       grid-column-start: 1;
       grid-row-start: 2;
       grid-row-end: 2;
-      background-image: url("../../images/ExteriorCeiling.png");
     }
+
     &_InteriorCeiling {
       padding: 19px 25px;
       grid-column-start: 1;
       grid-row-start: 3;
       grid-row-end: 3;
-      background-image: url("../../images/InteriorCeiling.png");
+    }
+  }
+}
+
+@media (max-width: 323px) {
+  .Main {
+    &_Container {
+      grid-template-rows: 152px 164px 164px;
+      grid-template-columns: 49% 50%;
+      grid-gap: 4px;
+    }
+
+    &_Category_Title {
+      font-size: 12px;
+      line-height: 22px;
+      letter-spacing: 0.01em;
+    }
+
+    &_TableLamps {
+      padding: 6px 11px;
+      color: $white;
+      background-image: url("../../images/TableLamps_small.png");
+    }
+
+    &_FloorLamps {
+      padding: 6px 11px;
+      background-image: url("../../images/FloorLamps_small.png");
+    }
+
+    &_ExteriorCeiling {
+      padding: 6px 11px;
+      background-image: url("../../images/ExteriorCeiling_small.png");
+    }
+
+    &_InteriorCeiling {
+      padding: 6px 11px;
+      background-image: url("../../images/InteriorCeiling_small.png");
     }
   }
 }

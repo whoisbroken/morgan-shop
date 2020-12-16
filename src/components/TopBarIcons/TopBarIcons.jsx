@@ -16,11 +16,11 @@ const TopBarIcons = (props) => {
       </button>
       <NavLink className="TopBarIcons_Link" to="/login" 
               activeClassName="TopBarIcons_Link_active">
-        <img src={LoginIcon} alt="Login" />
+        <img classNane="TopBarIcons_Icon"src={LoginIcon} alt="Login" />
       </NavLink>
       <NavLink className="TopBarIcons_Link" to="/cart" 
               activeClassName="TopBarIcons_Link_active">
-        <img src={CartIcon} alt="Cart" />
+        <img classNane="TopBarIcons_Icon"src={CartIcon} alt="Cart" />
         <span className="TopBarIcons_Counter">{props.cart.length}</span>
       </NavLink>
     </div>

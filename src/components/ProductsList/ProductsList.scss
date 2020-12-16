@@ -67,3 +67,19 @@
     margin-bottom: 24px;
   }
 }
+
+@media (max-width: 992px) {
+  .ProductsList {
+    &_Item {
+      flex-basis: 31%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .ProductsList {
+    &_Item {
+      flex-basis: 49%;
+    }
+  }
+}

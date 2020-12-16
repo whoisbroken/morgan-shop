@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import "./ProductsList.scss";
 import AddIcon from "../../images/add.svg";
-import removeIcon from "../../images/remove.svg"
-
+import removeIcon from "../../images/remove.svg";
 
 const ProductsList = (props) => {
  const [sortBy, setSortBy] = useState(props.sortProducts.value)
@@ -26,7 +25,7 @@ const ProductsList = (props) => {
   }, [props.sortProducts.value])
 
   return (
-    <>
+    <div>
       <ul className="ProductsList_List" >
         { props.products.length !== 0 ? 
           props.products.slice(0, props.productsListSize).map(product => {
@@ -72,7 +71,7 @@ const ProductsList = (props) => {
             Show more
           </button> 
         }
-    </>
+    </div>
   );
   
 };

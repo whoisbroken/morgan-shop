@@ -11,6 +11,11 @@ class TopBar extends Component {
     return (
       <div className="TopBar">
         <div className="TopBar_Container Container">
+          <div className="TopBar_BurgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <NavLink className="TopBar_Link" to="/">
             <img className="TopBar_Logo" src={Logo} alt="Logo" />
           </NavLink>

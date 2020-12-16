@@ -3,7 +3,7 @@ import { ACTION_TYPES } from '../actions/actionTypes';
 const initialState = {
   products: [],
   categories: [],
-  productsListSize: 8,
+  productsListSize: 12,
 }
 
 export const dataReducer = (state = initialState, action) => {
