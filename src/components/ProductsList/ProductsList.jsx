@@ -62,8 +62,7 @@ const ProductsList = (props) => {
       </ul>
       {props.products.length <= props.productsListSize ? 
           <button 
-          className="ProductsList_Button"
-          onClick={() => props.showMoreProducts(props.productsListSize)} >
+          className="ProductsList_Button">
             Roll up
           </button> 
           :

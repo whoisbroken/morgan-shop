@@ -1,0 +1,42 @@
+@import "../../constants/Variables.scss";
+
+.NotFoundPage {
+  &_Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 51px;
+  }
+  &_CustomNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &_Char {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 220px;
+    line-height: 268px;
+    color: $black;
+    &:first-child{
+      margin-right: 17px;
+    }
+  }
+  &_Img {
+    margin-right: 8px;
+  }
+  &_Text {
+    font-family: "Poppins", sans-serif;
+    line-height: 39px;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  &_Link{
+    border: 1px solid $black;
+    text-transform: uppercase;
+    padding: 6px 93px;
+  }
+}
