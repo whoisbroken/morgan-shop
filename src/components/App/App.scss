@@ -1,8 +1,98 @@
-.Container {
-  max-width: calc(1136px + 32px);
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 16px;
+  
+//@import '../../../node_modules/normalize.css/normalize';
+@import '../../constants//Variables.scss';
+
+html,
+body {
+  box-sizing: border-box;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: $black;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.Container {
+  max-width: 1163px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1190px) {
+  .Container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .Container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767px) {
+  .Container {
+    max-width: none;
+  }
+}
+
+.Link {
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: $black;
+  &.Link_underline {
+    text-decoration-line: underline;
+  }
+}
+
+@media(max-width: 767px) {
+  .Container {
+    padding: 0 8px;
+  }
+  .Link {
+    font-size: 10px;
+    line-height: 16px;
+  }
+}
+
+
 
 

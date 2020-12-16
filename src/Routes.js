@@ -40,7 +40,7 @@ const Routes = () => {
         <Route path="/reset-pass">
           <ResetPassword />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Main />
         </Route>
         <Route path="*">

@@ -62,3 +62,14 @@ export const sortProducts = (payload) => ({
     type: ACTION_TYPES.SORT_PRODUCTS,
     payload,
 })
+
+//Quantity products
+export const increaseQuantity = (productId, count) => ({
+  type: ACTION_TYPES.INCREASE_QUANTITY,
+  payload: { productId, count }
+})
+
+export const decreaseQuantity = (productId) => ({
+  type: ACTION_TYPES.DECREASE_QUANTITY,
+  payload: {productId}
+})

@@ -1,24 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from 'react-redux';
-
+import { connect } from 'react-redux';
 
 import ScrollToTop from "../../utils/ScrollToTop";
 import "./App.scss";
-import { store } from "../../redux/store";
 import TopBar from '../TopBar/TopBar.jsx';
 import Routes from '../../Routes';
+import { fetchProducts, fetchCategories } from '../../redux/actions/action';
 
-const App = () => {  
+
+class App extends Component {  
+  componentDidMount = () => {
+    this.props.fetchProducts()
+    this.props.fetchCategories()
+  }
+  render() {
   return (
-    <Provider store={store}>
       <Router>
         <ScrollToTop />
         <TopBar />
         <Routes />
       </Router>
-    </Provider>
   );     
  }
+}
 
- export default App;
+ const mapStateToProps = (state) => ({
+  products: state.data.products,
+  categories: state.data.categories,
+  cart: state.cart,
+  sortProducts: state.sortProducts.sortBy,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchProducts: () => dispatch(fetchProducts()),
+  fetchCategories: () => dispatch(fetchCategories()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+

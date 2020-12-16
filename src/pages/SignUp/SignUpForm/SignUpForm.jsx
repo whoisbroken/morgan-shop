@@ -15,7 +15,7 @@ const SignUp_Form = () => {
       <label className="SignUpForm_Label" htmlFor=""  >Password</label>
       <input className="SignUpForm_Input" type="password" placeholder="Enter your password" />
       <p className="SignUpForm_Privacy">By creating an account you agree to the website <span>terms and conditions</span> and our <span>privacy notice.</span></p>
-      <button className="SignUpForm_Submit" type="submit">LOG IN</button>
+      <button className="SignUpForm_Submit" type="submit">CREATE AN ACCOUNT</button>
       <div className="SignUpForm_Box">
         <p className="SignUpForm_Box_Text">Have an account?</p>
         <NavLink className="SignUpForm_Box_Link" to="/login">

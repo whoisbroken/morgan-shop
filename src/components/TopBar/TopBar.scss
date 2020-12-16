@@ -4,6 +4,7 @@
   &_Container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 65px;
   }
   &_Logo {
@@ -24,5 +25,11 @@
   }
   &_Counter {
     text-align: center;
+  }
+}
+
+@media(max-width: 1024px) {
+  .TopBar {
+  
   }
 }

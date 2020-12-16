@@ -66,7 +66,7 @@ const ExteriorCeiling = (props) => {
                     <img className="ExteriorCeiling_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt="" />
                     <div className="ExteriorCeiling_Box">
                       <p className="ExteriorCeiling_Name">{product.name}</p>
-                      <p className="ExteriorCeiling_Price">{+ product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
+                      <p className="ExteriorCeiling_Price">{product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
                     </div>
                   </li>
                 )) : 

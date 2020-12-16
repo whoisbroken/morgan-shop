@@ -4,7 +4,9 @@
     grid-template-rows: 323px 323px;
     grid-template-columns: 326px 326px 468px;
     grid-gap: 8px;
-
+  }
+  &_Title {
+    font-weight: 400;
   }
   &_TableLamps {
     padding: 16px 20px;
@@ -35,3 +37,54 @@
   }
 }
 
+@media (max-width: 1190px) {
+  .Main{
+    &_Container {
+      display: grid;
+      grid-template-rows: 323px 323px;
+      grid-template-columns: 326px 326px 326px;
+      grid-gap: 8px;
+    }
+    &_FloorLamps {
+      background-position: center;
+    }
+  }
+}
+
+@media (max-width: 323px) {
+  .Main{
+    &_Container {
+      display: grid;
+      grid-template-rows: 323px 323px 323px;
+      grid-template-columns: 326px 323px;
+      grid-gap: 8px;
+    }
+    &_TableLamps {
+      padding: 16px 20px;
+      color: #fff;
+      grid-column: 1 / 3;
+      background-image: url("../../images/TableLamps.png");
+    }
+    &_FloorLamps {
+      padding: 16px 30px;
+      grid-column-start: 2;
+      grid-row-start: 2;
+      grid-row-end: 4;
+      background-image: url("../../images/FloorLamps.png");
+    }
+    &_ExteriorCeiling {
+      padding: 19px 18px;
+      grid-column-start: 1;
+      grid-row-start: 2;
+      grid-row-end: 2;
+      background-image: url("../../images/ExteriorCeiling.png");
+    }
+    &_InteriorCeiling {
+      padding: 19px 25px;
+      grid-column-start: 1;
+      grid-row-start: 3;
+      grid-row-end: 3;
+      background-image: url("../../images/InteriorCeiling.png");
+    }
+  }
+}
