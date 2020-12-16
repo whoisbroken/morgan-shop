@@ -57,6 +57,12 @@ export const removeFromCart = (id) => ({
   payload: id
 })
 
+//ShowMoreProducts
+export const showMoreProducts = (value) => ({
+  type: ACTION_TYPES.SHOW_MORE_PRODUCTS,
+  payload: value + 8
+})
+
 //Sort product
 export const sortProducts = (payload) => ({
     type: ACTION_TYPES.SORT_PRODUCTS,

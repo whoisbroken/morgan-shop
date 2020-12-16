@@ -48,14 +48,14 @@ const TableLamps  = (props) => {
                     {
                       props.cart.find(item => item.id === product.id) ?
                         <button
-                          className='ProductList_Button'
+                          className='TableLamps_Item_Button'
                           alt='symbol'
                           onClick={() => handleRemoveFromCart(product.id)}
                         >
                           <img src={removeIcon} alt="remove" />
                         </button> :
                         <button
-                          className='ProductList_Button'
+                          className='TableLamps_Item_Button'
                           alt='symbol'
                           onClick={() => handleAddToCart(product)}
                         >

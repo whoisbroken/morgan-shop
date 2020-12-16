@@ -3,7 +3,7 @@ import { ACTION_TYPES } from '../actions/actionTypes';
 const initialState = {
   products: [],
   categories: [],
-  productListSize: 8,
+  productsListSize: 8,
 }
 
 export const dataReducer = (state = initialState, action) => {
@@ -12,6 +12,8 @@ export const dataReducer = (state = initialState, action) => {
       return { ...state, ...action.payload  };
     case ACTION_TYPES.FETCH_CATEGORIES:
       return { ...state, ...action.payload };
+    case ACTION_TYPES.SHOW_MORE_PRODUCTS:
+      return { ...state, productsListSize: action.payload}
     default:
       return state;
   }

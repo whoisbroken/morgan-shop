@@ -9,22 +9,7 @@
     margin-left: -16px;
   }
 
-  &_Button {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 22px;
-    height: 23px;
-    z-index: 1;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    padding: 0;
-    cursor: pointer;
-    outline: none;
-  }
+
 
   &_Item {
     background: #F0F0F0;
@@ -33,6 +18,22 @@
     margin-bottom: 16px;
     position: relative;
     max-width: 272px;
+    &_Button {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 22px;
+      height: 23px;
+      z-index: 1;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      padding: 0;
+      cursor: pointer;
+      outline: none;
+    }
   }
 
   &_Img {

@@ -33,7 +33,7 @@ const Cart = ({ products, cart, categories, quantity, removeFromCart, increaseQu
                       <div className="Cart-Header">
                         <div className="Cart-Info">
                           <div className="Cart-Category">
-                            {product.id}
+                            
                           </div>
                           <div className="Cart-Name">{product.name}</div>
                         </div>

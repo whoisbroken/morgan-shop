@@ -12,7 +12,6 @@ export const quantityReducer = (state = InitialState, action) => {
             return {
                 ...state, [action.payload.productId]: ++count
             }
-            count += 1
             case ACTION_TYPES.DECREASE_QUANTITY:
                 return state - 1
             default:
