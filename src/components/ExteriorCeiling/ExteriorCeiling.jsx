@@ -4,11 +4,14 @@ import { connect } from "react-redux";
 import "./ExteriorCeiling.scss";
 import AddIcon from "../../images/add.svg";
 import removeIcon from "../../images/remove.svg"
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import SortProducts from "../SortProducts/SortProducts";
 import { fetchProducts, fetchCategories, addToCart, removeFromCart} from '../../redux/actions/action';
 
 
 const ExteriorCeiling = (props) => {
+
+  const CATEGORY_ID = "f6e7591c-6743-432d-992b-c3bff746848d";
 
   const handleAddToCart = (product) => {
     props.addToCart(product)
@@ -40,6 +43,10 @@ const ExteriorCeiling = (props) => {
     return (
       <div className="ExteriorCeiling">
         <div className="ExteriorCeiling_Container Container">
+          <Breadcrumbs 
+            categories={props.categories}
+            id={CATEGORY_ID}
+          />
           <SortProducts />
           <ul className="ExteriorCeiling_List" >
             { props.products.length !== 0 ? 

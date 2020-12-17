@@ -4,11 +4,15 @@ import { connect } from "react-redux";
 import "./TableLamps.scss";
 import AddIcon from "../../images/add.svg"
 import removeIcon from "../../images/remove.svg"
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import SortProducts from "../SortProducts/SortProducts";
 import { fetchProducts, fetchCategories, addToCart, removeFromCart } from '../../redux/actions/action';
 
 
 const TableLamps  = (props) => {
+
+  const CATEGORY_ID = "f95e6ae1-a4bd-44d5-917d-7015f6cdd592";
+
    const handleAddToCart = (product) => {
     props.addToCart(product)
   }
@@ -38,10 +42,14 @@ const TableLamps  = (props) => {
     return (
       <div className="TableLamps">
         <div className="TableLamps_Container Container">
+          <Breadcrumbs 
+            categories={props.categories}
+            id={CATEGORY_ID}
+          />
           <SortProducts />
           <ul className="TableLamps_List" >
             { props.products.length !== 0 ? 
-              props.products.filter((product => product.categoryId === "f95e6ae1-a4bd-44d5-917d-7015f6cdd592"))
+              props.products.filter((product => product.categoryId === CATEGORY_ID))
                 .map((product) => (
 
                   <li className="TableLamps_Item" key={product.id}>

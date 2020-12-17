@@ -4,12 +4,15 @@ import { connect } from "react-redux";
 import "./InteriorCeiling.scss";
 import AddIcon from "../../images/add.svg"
 import removeIcon from "../../images/remove.svg"
-
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import SortProducts from "../SortProducts/SortProducts";
 import { fetchProducts, fetchCategories, addToCart, removeFromCart } from '../../redux/actions/action';
 
 
 const InteriorCeiling  = (props) => {
+
+  const categoryId = "dc4437c1-364b-4ba5-992a-15f55ca2d8eb";
+
   const handleAddToCart = (product) => {
     props.addToCart(product)
   }
@@ -40,10 +43,14 @@ const InteriorCeiling  = (props) => {
     return (
       <div className="InteriorCeiling">
         <div className="InteriorCeiling_Container Container">
+          <Breadcrumbs 
+            categories={props.categories}
+            id={categoryId}
+          />
           <SortProducts />
           <ul className="InteriorCeiling_List" >
-            { props.products.length !== 0 ? 
-              props.products.filter((product => product.categoryId === "dc4437c1-364b-4ba5-992a-15f55ca2d8eb"))
+            { props.products.length !== 0 || props.categories.length !== 0 ? 
+              props.products.filter((product => product.categoryId === categoryId))
                 .map((product) => (
                   <li className="InteriorCeiling_Item" key={product.id}>
                      {
@@ -69,7 +76,7 @@ const InteriorCeiling  = (props) => {
                       <p className="InteriorCeiling_Price">{+ product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
                     </div>
                   </li>
-                )): 
+                )) : 
                 props.fetchProducts()
             }
           </ul>

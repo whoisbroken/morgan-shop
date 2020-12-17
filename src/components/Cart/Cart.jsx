@@ -22,50 +22,50 @@ const Cart = ({ products, cart, categories, quantity, removeFromCart, increaseQu
         {cart.length === 0 ?
           <EmptyCart /> :
           <>
-            <h2 className="Cart-Title">BASKET</h2>
+            <h2 className="Cart_Title">BASKET</h2>
             <div className="Cart_Content">
-            <ul className="Cart-List">
+            <ul className="Cart_List">
               {cart.map((product) => {
                 return (
-                  <li className="Cart-Item" key={product.id}>
-                    <img src={`https://morgan-shop.herokuapp.com${product.image}`} alt={product.alias} className="Cart-Picture" />
-                    <div className="Cart-Inner">
-                      <div className="Cart-Header">
-                        <div className="Cart-Info">
-                          <div className="Cart-Category">
+                  <li className="Cart_Item" key={product.id}>
+                    <img className="Cart_Picture" src={`https://morgan-shop.herokuapp.com${product.image}`} alt={product.alias} />
+                    <div className="Cart_Inner">
+                      <div className="Cart_Header">
+                        <div className="Cart_Info">
+                          <div className="Cart_Category">
                             
                           </div>
-                          <div className="Cart-Name">{product.name}</div>
+                          <div className="Cart_Name">{product.name}</div>
                         </div>
                         <button
-                          className="Cart-Remove"
+                          className="Cart_Remove"
                           onClick={() => handleRemoveFromCart(product.id)}>
-                          <img src={IconClose} alt="Close" className="Cart-IconClose" />
+                          <img className="Cart_IconClose" src={IconClose} alt="Close" />
                         </button>
                       </div>
-                      <div className="Cart-Footer">
-                        <div className="Cart-Amount">
-                          <div className="Cart-Quantity">Quantity</div>
-                          <div className="Cart-Buttons">
+                      <div className="Cart_Footer">
+                        <div className="Cart_Amount">
+                          <div className="Cart_Quantity">Quantity</div>
+                          <div className="Cart_Buttons">
                             <button
-                            className="Cart-Decrease"
+                            className="Cart_Decrease"
                             onClick={() => decreaseQuantity(product.id)}
                           >
-                            <img src={IconMinus} alt="Minus" className="Cart-IconClose"/>
+                            <img className="Cart_IconClose" src={IconMinus} alt="Minus"/>
                           </button>
                           <input
                             type="number"
-                            className="Cart-Count"
+                            className="Cart_Count"
                             value={product.counter}
                             onChange={(e) => console.log(e)} />
                           <button
-                            className="Cart-Increase"
+                            className="Cart_Increase"
                             onClick={() => increaseQuantity(product.id)}>
-                            <img src={IconPlus} alt="Plus" className="Cart-IconClose"/>
+                            <img className="Cart_IconClose" src={IconPlus} alt="Plus"/>
                           </button>
                           </div>
                         </div>
-                        <div className="Cart-Price">{`£` + parseFloat(product.price).toFixed(2)}</div>
+                        <div className="Cart_Price">{`£` + parseFloat(product.price).toFixed(2)}</div>
                       </div>
                     </div>
                   </li>

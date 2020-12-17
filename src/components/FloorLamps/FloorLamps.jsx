@@ -4,12 +4,16 @@ import { connect } from "react-redux";
 import "./FloorLamps.scss";
 import AddIcon from "../../images/add.svg"
 import removeIcon from "../../images/remove.svg"
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import SortProducts from "../SortProducts/SortProducts";
 import { fetchProducts, fetchCategories, addToCart, removeFromCart } from '../../redux/actions/action';
 
 
 const FloorLamps = (props) => {
-   const handleAddToCart = (product) => {
+
+  const CATEGORY_ID = "66ef32ef-03ad-48c2-b295-bdfc018b5881";
+
+  const handleAddToCart = (product) => {
     props.addToCart(product)
   }
   
@@ -39,10 +43,14 @@ const FloorLamps = (props) => {
     return (
       <div className="FloorLamps">
         <div className="FloorLamps_Container Container">
+          <Breadcrumbs 
+            categories={props.categories}
+            id={CATEGORY_ID}
+          />
           <SortProducts />
           <ul className="FloorLamps_List" >
             { props.products.length !== 0 ? 
-              props.products.filter((product => product.categoryId === "66ef32ef-03ad-48c2-b295-bdfc018b5881"))
+              props.products.filter((product => product.categoryId === CATEGORY_ID))
                 .map((product) => (
 
                   <li className="FloorLamps_Item" key={product.id}>

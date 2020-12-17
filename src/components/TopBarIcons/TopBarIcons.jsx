@@ -14,13 +14,13 @@ const TopBarIcons = (props) => {
       <button className='TopBarIcons_Button'>
         <img className='TopBarIcons_Icon' src={SearchIcon} alt='search' />
       </button>
-      <NavLink className="TopBarIcons_Link" to="/login" 
+      <NavLink className="TopBarIcons_L`ink" to="/login" 
               activeClassName="TopBarIcons_Link_active">
-        <img classNane="TopBarIcons_Icon"src={LoginIcon} alt="Login" />
+        <img className="TopBarIcons_Icon"src={LoginIcon} alt="Login" />
       </NavLink>
       <NavLink className="TopBarIcons_Link" to="/cart" 
               activeClassName="TopBarIcons_Link_active">
-        <img classNane="TopBarIcons_Icon"src={CartIcon} alt="Cart" />
+        <img className="TopBarIcons_Icon"src={CartIcon} alt="Cart" />
         <span className="TopBarIcons_Counter">{props.cart.length}</span>
       </NavLink>
     </div>
