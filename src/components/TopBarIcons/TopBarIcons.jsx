@@ -14,7 +14,7 @@ const TopBarIcons = (props) => {
       <button className='TopBarIcons_Button'>
         <img className='TopBarIcons_Icon' src={SearchIcon} alt='search' />
       </button>
-      <NavLink className="TopBarIcons_L`ink" to="/login" 
+      <NavLink className="TopBarIcons_Link" to="/login" 
               activeClassName="TopBarIcons_Link_active">
         <img className="TopBarIcons_Icon"src={LoginIcon} alt="Login" />
       </NavLink>
