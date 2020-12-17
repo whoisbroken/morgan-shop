@@ -123,7 +123,8 @@
 
   &_Button {
     border: 1px solid #6D6D6D;
-    padding: 12px 29px;
+    width: 176px;
+    padding: 12px 0;
     background-color: transparent;
     font-family: "Poppins";
     color: #121212;
@@ -132,5 +133,61 @@
     justify-content: center;
     cursor: pointer;
 
+  }
+}
+
+@media (max-width: 400px) {
+  .SignUpForm {
+    min-width: 296px;
+    max-width: 0;
+    &_Label {
+      font-size: 12px;
+      line-height: 22px;
+    }
+    &_Input {
+      margin-bottom: 20px;
+    }
+    &_Submit {
+      margin-bottom: 9px;
+      padding: 7px 0;
+      font-size: 12px;
+      line-height: 22px;
+    }
+    &_Link {
+      top: 90px;
+      font-size: 10px;
+      line-height: 15px;
+    }
+    &_Box {
+      margin-bottom: 15px;
+    }
+    &_Box_Text {
+      font-size: 10px;
+      line-height: 15px;
+    }
+    &_Box_Link {
+      font-size: 10px;
+      line-height: 15px;
+    }
+    &_Button {
+      padding: 6px 0;
+      width: 144px;
+      & span {
+        display: none;
+      }
+    }
+    &_Divider {
+      font-size: 10px;
+      line-height: 16px;
+      margin-bottom: 9px;
+      &:after {
+        width: 140px;
+        top: 7px;
+      }
+      &:before {
+        width: 140px;
+        top: 7px;
+      }
+    }
   }
 }

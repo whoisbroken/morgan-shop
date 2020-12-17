@@ -13,3 +13,16 @@
     margin-bottom: 26px;
   }
 }
+
+@media (max-width: 400px) {
+  .SignUp {
+    &_Container {
+      margin-top: 24px;
+    }
+    &_Title {
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 18px;
+    }
+  }
+}

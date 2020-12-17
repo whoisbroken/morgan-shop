@@ -26,10 +26,12 @@ const SignUp_Form = () => {
       <div className="SignUpForm_Buttons">
         <button className="SignUpForm_Button">
           <img src={GoggleIcon} alt="GoggleIcon" className="LoginForm_Buttons_Icon"/>
-          With Google</button>
+          <span>With Google</span>
+        </button>
         <button className="SignUpForm_Button">
           <img src={FacebookIcon} alt="FacebookIcon" className="LoginForm_Buttons_Icon"/>
-          With Facebook</button>
+          <span>With Facebook</span>
+        </button>
       </div>
     </form>
   );

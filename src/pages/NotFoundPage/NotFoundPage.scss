@@ -8,25 +8,29 @@
     align-items: center;
     margin-top: 51px;
   }
+
   &_CustomNumber {
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   &_Char {
     font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 220px;
     line-height: 268px;
-    color: $black;
-    &:first-child{
+
+    &:first-child {
       margin-right: 17px;
     }
   }
+
   &_Img {
     margin-right: 8px;
   }
+
   &_Text {
     font-family: "Poppins", sans-serif;
     line-height: 39px;
@@ -34,9 +38,74 @@
     letter-spacing: -0.01em;
     margin-bottom: 24px;
   }
-  &_Link{
+
+  &_Link {
     border: 1px solid $black;
     text-transform: uppercase;
     padding: 6px 93px;
+    font-size: 12px;
+    line-height: 22px;
+  }
+}
+
+
+@media (max-width: 460px) {
+  .NotFoundPage {
+    &_Container {
+      margin-top: 44px;
+    }
+
+    &_Char {
+      font-size: 120px;
+      line-height: 133px;
+
+      &:first-child {
+        margin-right: 17px;
+      }
+    }
+
+    &_Img {
+      height: 77px;
+    }
+
+    &_Text {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+}
+
+@media (max-width: 323px) {
+  .NotFoundPage {
+    &_Container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    &_CustomNumber {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  
+    &_Char {
+      font-size: 72px;
+      line-height: 88px;
+
+      &:first-child {
+        margin-right: 6px;
+      }
+    }
+    &_Img {
+      height: 67px;
+      margin-top: 6px;
+      margin-right: 3px;
+    }
+    &_Link {
+    padding: 6px 0;
+    width: 100%;
+    text-align: center;
+    }
   }
 }

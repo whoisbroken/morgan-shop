@@ -14,7 +14,7 @@ const ResetPassword = () => {
         <input className="ResetPassword_Input" type="email" placeholder="Enter your email" />
         <button className="ResetPassword_Submit" type="submit">SEND A PASSWORD RESET LINK</button>
         <NavLink className="ResetPassword_Link" to="/login">
-          Back to login
+          Back to sign in
       </NavLink>
       </form>
     </div>
