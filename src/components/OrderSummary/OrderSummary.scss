@@ -25,7 +25,7 @@
       display: flex;
       justify-content: space-between;
       padding-bottom: 15px;
-      border-bottom: 1px solid #6D6D6D;
+      border-bottom: 1px solid #DEDEDE;
   }
 
   &_Total {
@@ -40,8 +40,11 @@
       color: #121212;
       font-size: 14px;
   }
-
   &_Link {
+    display: none;
+  }
+
+  &_Button_Link {
       display: block;
       width: 240px;
       height: 35px;
@@ -61,5 +64,28 @@
       &:focus {
         background: #6D6D6D;
       }
+  }
+}
+
+@media (max-width: 767px) {
+  .OrderSummary {
+    border: none; 
+    min-width: 100%;
+    
+    &_Title {
+      display: none;
+    }
+
+    &_Button_Link {
+      width: 100%;
+      margin-bottom: 12px;
+
+    }
+
+    &_Link {
+      display: block;
+      text-align: center;
+      text-decoration-line: underline;
+    }
   }
 }

@@ -2,20 +2,18 @@
 
 .Cart {
   &_Container {
-    margin: 51px auto;
+    margin: 51px auto 24px;
     max-width: calc(1040px + 32px);
   }
   &_Content {
     display: flex;
+    justify-content: space-between;
   }
   &_Title {
     text-align: center;
     font-size: 18px;
     line-height: 27px;
     margin-bottom: 32px;
-  }
-  &_List {
-    margin-right: 13%;
   }
   &_Item {
     width: 656px;
@@ -108,8 +106,87 @@
 }
 
 
-@media screen and (max-width: 1100px) {
-  .Cart_Container {
-    max-width: 900px;
+@media (max-width: 1100px) {
+  .Cart {
+    &_Container {
+      max-width: calc(900px + 32px);
+    }
+    &_Item {
+      max-width: 500px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .Cart {
+    &_Container {
+      max-width: calc(750px + 32px);
+    }
+    &_Item {
+      max-width: 430px;
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  .Cart {
+    &_Container {
+      max-width: calc(750px + 32px);
+    }
+    &_Content {
+      flex-direction: column;
+      align-items: center;
+    }
+    &_List {
+      margin-bottom: 112px;
+    }
+  }
+}
+
+@media (max-width: 525px) {
+  .Cart {
+    &_Container {
+      max-width: 750px;
+    }
+    &_List {
+      width: 100%;
+    }
+    &_Item {
+      height: 80px;
+      min-width: 100%;
+      max-width: 0;
+    }
+    &_Inner {
+      max-width: 430px;
+    }
+    &_Picture {
+      height: 80px;
+    }
+    &_Buttons {
+      margin-bottom: 6px;
+    }
+    &_Decrease, &_Increase {
+      width: 22px;
+      height: 22px;
+    }
+    &_Count {
+      width: 22px;
+      height: 22px;
+    }
+    &_Name {
+      font-size: 10px;
+      line-height: 26px;
+    }
+    &_Price {
+      font-size: 12px;
+      line-height: 22px;
+    }
+    &_Footer {
+      margin-bottom: 0;
+    }
+    &_Quantity {
+      display: none;
+    }
   }
 }

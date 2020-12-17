@@ -5,6 +5,7 @@
   align-items: center;
   margin-top: 51px;
   min-width: 368px;
+
   &_Title {
     margin-bottom: 24px;
     font-size: 18px;
@@ -20,7 +21,7 @@
     margin-bottom: 36px;
   }
 
-  &_Button {
+  &_Link {
     padding: 11px 112px;
     font-weight: 500;
     font-size: 16px;
@@ -35,7 +36,7 @@
     transition: .3s ease;
     cursor: pointer;
 
-    &:hover { 
+    &:hover {
       background: #424242;
     }
 
@@ -49,34 +50,38 @@
 @media (max-width: 400px) {
   .EmptyCart {
     min-width: 296px;
+
     &_Title {
       margin-bottom: 12px;
       font-size: 12px;
       line-height: 22px;
       letter-spacing: 1%;
     }
-  
+
     &_Img {
       width: 34px;
-    height: 54px;
+      height: 54px;
     }
-  
+
     &_Info {
       font-size: 12px;
       line-height: 22px;
       margin-bottom: 16px;
     }
+
     &_Link {
       top: 90px;
       font-size: 10px;
       line-height: 15px;
     }
+
     &_Button {
       width: 100%;
       font-size: 12px;
       line-height: 22px;
       letter-spacing: 1%;
       padding: 7px 0;
+
       & span {
         display: none;
       }

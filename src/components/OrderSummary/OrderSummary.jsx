@@ -29,8 +29,8 @@ const OrderSummary = (props) => {
           <span className="OrderSummary_TotalPrice">£</span>
         </div>
 
-        <NavLink className="OrderSummary_Link" to="/" >checkout</NavLink>
-
+        <NavLink className="OrderSummary_Button_Link" to="/" >checkout</NavLink>
+        <NavLink className="OrderSummary_Link" to="/">Continue shopping</NavLink>
       </div>
     )
 };
