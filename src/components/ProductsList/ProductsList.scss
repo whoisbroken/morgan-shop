@@ -7,6 +7,7 @@
     padding: 16px 0 24px;
     margin-left: -16px;
   }
+
   &_Item {
     &_Button {
       position: absolute;
@@ -48,9 +49,8 @@
 
   &_Price {
     font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
   }
+
   &_Button {
     margin: 0 auto;
     display: block;
@@ -78,8 +78,65 @@
 
 @media (max-width: 767px) {
   .ProductsList {
+    &_List {
+      justify-content: space-between;
+    margin-left: -8px;
+    }
+
     &_Item {
-      flex-basis: 49%;
+      max-width: 144px;
+      margin-left: 8px;
+    }
+
+    &_Img {
+      height: 150px;
+    }
+
+    &_Box {
+      padding: 10px 5px 8px 12px;
+    }
+  }
+}
+@media (max-width: 460px) {
+  .ProductsList {
+    &_Item {
+      flex-basis: 46%;
+      max-width: none;
+    }
+    &_Img {
+      height: 210px;
+    }
+  }
+}
+
+@media (max-width: 323px) {
+  .ProductsList {
+    &_List {
+      justify-content: space-between;
+    }
+
+    &_Item {
+      max-width: 144px;
+    }
+
+    &_Img {
+      height: 150px;
+      width: 144px;
+    }
+
+    &_Box {
+      padding: 10px 5px 8px 12px;
+    }
+
+    &_Name {
+      font-size: 10px;
+      line-height: 16px;
+    }
+
+    &_Price {
+      font-size: 10px;
+      line-height: 16px;
+
     }
   }
 }

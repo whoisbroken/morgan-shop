@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 import "./TopBar.scss";
 import Navigation from '../Navigation/Navigation.jsx';
 import TopBarIcons from '../TopBarIcons/TopBarIcons.jsx';
-import Logo from '../../images/Logo.svg'
+import Logo from '../../images/Logo.png'
+import LogoSmall from '../../images/Logo_small.png'
 
 class TopBar extends Component {
   render() {
@@ -18,6 +19,7 @@ class TopBar extends Component {
           </div>
           <NavLink className="TopBar_Link" to="/">
             <img className="TopBar_Logo" src={Logo} alt="Logo" />
+            <img className="TopBar_LogoSmall" src={LogoSmall} alt="Logo" />
           </NavLink>
           <Navigation />
           <TopBarIcons />
