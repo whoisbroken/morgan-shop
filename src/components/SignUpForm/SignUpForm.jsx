@@ -5,7 +5,8 @@ import CustomButton from "../custom-button/custom-button";
 import SocialButton from "../social-button/social-button";
 import FormInput from "../form-input/form-input";
 
-import { signInWithGoogle, signInWithFacebook } from "../../firebase/firebase.utils";
+import { auth, createUserProfileDocument, 
+         signInWithGoogle, signInWithFacebook } from "../../firebase/firebase.utils";
 
 import GoggleIcon from "../../images/ic_google.svg";
 import FacebookIcon from "../../images/ic_facebook.svg";
@@ -17,16 +18,34 @@ class SignUpForm extends React.Component {
     super(props);
 
     this.state = {
-      fullName: '',
+      displayName: '',
       email: '',
       password: ''
     };
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
 
-    this.setState({ email: '', password: '' });
+    const { displayName, email, password} = this.state;
+
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password,
+      );
+
+      await createUserProfileDocument(user, { displayName });
+
+      this.setState({
+        displayName: '',
+        email: '',
+        password: '', 
+      })
+
+    } catch(error) {
+      console.log(error)
+    }
   };
 
   handleChange = event => {
@@ -37,12 +56,12 @@ class SignUpForm extends React.Component {
 
   render() {
     return (
-      <form className="SignUpForm">
+      <form className="SignUpForm" onSubmit={this.handleSubmit}>
         <FormInput
-          name='fullName'
           type='text'
+          name='displayName'
+          value={this.state.displayName}
           handleChange={this.handleChange}
-          value={this.state.fullName}
           label='Full Name'
           required
         />
