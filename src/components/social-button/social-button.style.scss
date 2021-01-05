@@ -1,0 +1,19 @@
+
+@import "../../constants/Variables.scss";
+
+.Social_Button {
+  border: 1px solid $gray;
+  width: 176px;
+  padding: 12px 0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .3s ease all;
+
+  & span {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+  }
+}

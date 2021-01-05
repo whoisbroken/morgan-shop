@@ -12,7 +12,6 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import Main from './components/Main/Main';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
-
 const Routes = () => {
   return ( 
       <Switch>

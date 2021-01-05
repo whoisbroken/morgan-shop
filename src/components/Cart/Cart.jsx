@@ -16,6 +16,8 @@ const Cart = ({ products, cart, categories, quantity, removeFromCart, increaseQu
     removeFromCart(id)
   };
 
+  let count;
+
   return (
     <div className="Cart">
       <div className="Cart_Container Container">
@@ -57,10 +59,10 @@ const Cart = ({ products, cart, categories, quantity, removeFromCart, increaseQu
                             type="number"
                             className="Cart_Count"
                             value={product.counter}
-                            onChange={(e) => console.log(e)} />
+                            onChange={(e) => quantity}/>
                           <button
                             className="Cart_Increase"
-                            onClick={() => increaseQuantity(product.id)}>
+                            onClick={() => increaseQuantity(product.id, count = 1)}>
                             <img className="Cart_IconClose" src={IconPlus} alt="Plus"/>
                           </button>
                           </div>
@@ -91,7 +93,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   removeFromCart: (id) => dispatch(removeFromCart(id)),
-  increaseQuantity: (id) => dispatch(increaseQuantity(id, 1)),
+  increaseQuantity: (id, count) => dispatch(increaseQuantity(id, count)),
   decreaseQuantity: (id) => dispatch(decreaseQuantity(id)),
 })
 

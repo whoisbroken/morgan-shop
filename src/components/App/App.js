@@ -2,23 +2,45 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import ScrollToTop from "../../utils/ScrollToTop";
-import "./App.scss";
 import TopBar from '../TopBar/TopBar.jsx';
 import Routes from '../../Routes';
+import ScrollToTop from "../../utils/ScrollToTop";
 import { fetchProducts, fetchCategories } from '../../redux/actions/action';
+import { auth } from "../../firebase/firebase.utils";
+
+import "./App.scss";
 
 
 class App extends Component {  
-  componentDidMount = () => {
-    this.props.fetchProducts()
-    this.props.fetchCategories()
+  constructor() {
+    super();
+
+    this.state = {
+      currentUser: null,
+    }
   }
+
+  unsubscribeFromAuth = null;
+
+  componentDidMount = () => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user});
+    });
+
+    this.props.fetchProducts();
+    this.props.fetchCategories();
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();  
+  }
+  
+  
   render() {
   return (
       <Router>
         <ScrollToTop />
-        <TopBar />
+        <TopBar currentUser={this.state.currentUser}/>
         <Routes />
       </Router>
   );     

@@ -1,0 +1,26 @@
+
+@import "../../constants/Variables.scss";
+
+.group {
+  width: 100%;
+  
+  .form-input {
+    font-family: "Poppins";
+    border: 1px solid $darkGray;
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 27px;
+
+    &::placeholder {
+      color: $darkGray;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .form-input-label {
+    padding-bottom: 2px;
+  }
+}
