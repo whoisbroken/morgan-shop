@@ -5,7 +5,7 @@ import CustomButton from "../custom-button/custom-button";
 import SocialButton from "../social-button/social-button";
 import FormInput from "../form-input/form-input";
 
-import { signInWithGoogle, signInWithFacebook } from "../../firebase/firebase.utils";
+import { auth, signInWithGoogle, signInWithFacebook } from "../../firebase/firebase.utils";
 
 import GoogleIcon from "../../images/ic_google.svg";
 import FacebookIcon from "../../images/ic_facebook.svg";
@@ -22,10 +22,17 @@ class LoginForm extends React.Component {
     };
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
 
-    this.setState({ email: '', password: '' });
+    const { email, password } = this.state;
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: '', password: ''});
+    } catch(error) {
+      console.log(error);
+    }
   };
 
   handleChange = event => {
