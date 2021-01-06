@@ -17,7 +17,7 @@ const Products = (props) => {
     return (
     <div>
       <SortProducts /> 
-      <ProductsList 
+      {/* <ProductsList 
         products={props.products}
         categories={props.categories}
         cart={props.cart}
@@ -27,7 +27,7 @@ const Products = (props) => {
         fetchProducts={props.fetchProducts}
         productsListSize={props.productsListSize}
         showMoreProducts={props.showMoreProducts}
-      />
+      /> */}
     </div>
   );
 

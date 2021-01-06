@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
-import "./Main.scss";
+import "./Main.styles.scss";
 import Products from '../Products/Products';
 
 const Main = () => {

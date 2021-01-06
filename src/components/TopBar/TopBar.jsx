@@ -4,15 +4,16 @@ import { connect } from 'react-redux';
 
 import { auth } from "../../firebase/firebase.utils";
 
-import Navigation from '../Navigation/Navigation.jsx';
-import TopBarIcons from '../TopBarIcons/TopBarIcons.jsx';
+import Navigation from '../Navigation/Navigation';
+import TopBarIcons from '../TopBarIcons/TopBarIcons';
+import CartDropdown from "../CartDropdown/CartDropdown";
 
 import Logo from '../../images/Logo.png'
 import LogoSmall from '../../images/Logo_small.png'
 
 import "./TopBar.scss";
 
-const TopBar = ({ currentUser }) => {
+const TopBar = ({ currentUser, hidden }) => {
     return (
       <div className="TopBar">
         <div className="TopBar_Container Container">
@@ -33,12 +34,14 @@ const TopBar = ({ currentUser }) => {
           }
           <TopBarIcons />
         </div>
+        { hidden ? null : <CartDropdown /> }
       </div>
     );
 }
 
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser,
+  hidden: state.cart.hidden
 })
 
 

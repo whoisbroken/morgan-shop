@@ -84,3 +84,7 @@ export const setCurrentUser = (user) => ({
   type: ACTION_TYPES.SET_CURRENT_USER,
   payload: user,
 })
+
+export const toggleCartHidden = () => ({
+  type: ACTION_TYPES.TOGGLE_CART_HIDDEN,
+})

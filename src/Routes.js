@@ -9,7 +9,7 @@ import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import Cart from "./components/Cart/Cart";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
-import Main from './components/Main/Main';
+import Main from './components/Main/Main.jsx';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 const Routes = () => {
