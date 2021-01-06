@@ -3,12 +3,9 @@ import  { connect } from 'react-redux';
 
 import SortProducts from "../SortProducts/SortProducts";
 import ProductsList from "../ProductsList/ProductsList.jsx";
-import { fetchProducts, addToCart, removeFromCart, showMoreProducts } from '../../redux/actions/action';
+import { fetchProducts, removeFromCart, showMoreProducts } from '../../redux/actions/action';
 
 const Products = (props) => {
- const handleAddToCart = (product) => {
-    props.addToCart(product)
-  };
   
   const handleRemoveFromCart = (id) => {
     props.removeFromCart(id)
@@ -17,17 +14,16 @@ const Products = (props) => {
     return (
     <div>
       <SortProducts /> 
-      {/* <ProductsList 
+      <ProductsList 
         products={props.products}
-        categories={props.categories}
-        cart={props.cart}
-        handleAddToCart={handleAddToCart}
-        handleRemoveFromCart={handleRemoveFromCart}
-        sortProducts={props.sortProducts}
-        fetchProducts={props.fetchProducts}
-        productsListSize={props.productsListSize}
-        showMoreProducts={props.showMoreProducts}
-      /> */}
+        // categories={props.categories}
+        // cart={props.cart}
+        // handleRemoveFromCart={handleRemoveFromCart}
+        // sortProducts={props.sortProducts}
+        // fetchProducts={props.fetchProducts}
+        // productsListSize={props.productsListSize}
+        // showMoreProducts={props.showMoreProducts}
+      />
     </div>
   );
 
@@ -43,7 +39,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchProducts: () => dispatch(fetchProducts()),
-  addToCart: (product) => dispatch(addToCart(product)),
   removeFromCart: (id) => dispatch(removeFromCart(id)),
   showMoreProducts: (value) => dispatch(showMoreProducts(value)),
 })

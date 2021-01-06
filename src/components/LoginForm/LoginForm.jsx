@@ -63,7 +63,7 @@ class LoginForm extends React.Component {
       <NavLink className="LoginForm_Link" to="/reset-pass">
         Forgotten your password?
       </NavLink>
-      <CustomButton type="submit">LOG IN</CustomButton>
+      <CustomButton type="submit">LOG IN</CustomButton> 
       <div className="LoginForm_Box">
         <p className="LoginForm_Box_Text">Don't have an account?</p>
         <NavLink className="LoginForm_Box_Link" to="/signup" activeClassName="LoginForm_Box_Link_active">

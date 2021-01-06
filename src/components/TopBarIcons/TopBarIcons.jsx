@@ -29,7 +29,7 @@ const TopBarIcons = ({ cart, toggleCartHidden }) => {
 };
 
 const mapStateToProps = (state) => ({
-  cart: state.cart
+  cart: state.cart.cartItems
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -41,15 +41,9 @@ export const fetchCategories = () => {
 };
 
 // Cart
-export const addToCart = (product) => ({
+export const addToCart = (item) => ({
   type: ACTION_TYPES.ADD_TO_CART,
-  payload: {
-      id: product.id, 
-      name: product.name, 
-      alias: product.alias, 
-      price: product.price, 
-      image: product.image,
-  }
+  payload: item,
 })
 
 export const removeFromCart = (id) => ({
