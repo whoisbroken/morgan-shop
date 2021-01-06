@@ -44,8 +44,8 @@ const Cart = ({ products, cart, categories, quantity, removeFromCart, increaseQu
                           onClick={() => handleRemoveFromCart(product.id)}>
                           <img className="Cart_IconClose" src={IconClose} alt="Close" />
                         </button>
-                      </div>
-                      <div className="Cart_Footer">
+                        </div>
+                        <div className="Cart_Footer">
                         <div className="Cart_Amount">
                           <div className="Cart_Quantity">Quantity</div>
                           <div className="Cart_Buttons">
