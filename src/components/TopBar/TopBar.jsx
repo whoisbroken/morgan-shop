@@ -1,14 +1,16 @@
 import React from 'react';
 import { NavLink, Link } from "react-router-dom";
-
-import "./TopBar.scss";
-import Navigation from '../Navigation/Navigation.jsx';
-import TopBarIcons from '../TopBarIcons/TopBarIcons.jsx';
+import { connect } from 'react-redux';
 
 import { auth } from "../../firebase/firebase.utils";
 
+import Navigation from '../Navigation/Navigation.jsx';
+import TopBarIcons from '../TopBarIcons/TopBarIcons.jsx';
+
 import Logo from '../../images/Logo.png'
 import LogoSmall from '../../images/Logo_small.png'
+
+import "./TopBar.scss";
 
 const TopBar = ({ currentUser }) => {
     return (
@@ -35,4 +37,9 @@ const TopBar = ({ currentUser }) => {
     );
 }
 
-export default TopBar;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+})
+
+
+export default connect(mapStateToProps)(TopBar);

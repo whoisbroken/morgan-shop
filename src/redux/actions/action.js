@@ -79,3 +79,8 @@ export const decreaseQuantity = (productId) => ({
   type: ACTION_TYPES.DECREASE_QUANTITY,
   payload: {productId}
 })
+
+export const setCurrentUser = (user) => ({
+  type: ACTION_TYPES.SET_CURRENT_USER,
+  payload: user,
+})

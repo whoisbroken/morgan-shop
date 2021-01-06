@@ -5,41 +5,34 @@ import { connect } from 'react-redux';
 import TopBar from '../TopBar/TopBar.jsx';
 import Routes from '../../Routes';
 import ScrollToTop from "../../utils/ScrollToTop";
-import { fetchProducts, fetchCategories } from '../../redux/actions/action';
+import { fetchProducts, fetchCategories, setCurrentUser } from '../../redux/actions/action';
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
 import "./App.scss";
 
 
 class App extends Component {  
-  constructor() {
-    super();
-
-    this.state = {
-      currentUser: null,
-    }
-  }
 
   unsubscribeFromAuth = null;
 
   componentDidMount = () => {
+    const { setCurrentUser } = this.props;
+
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          this.setState({
+          setCurrentUser({
             currentUser: {
               id: snapShot.id,
               ...snapShot.data()
             }
           });
-
-          console.log(this.state)
         });
       }
 
-      this.setState({ currentUser: userAuth })
+      setCurrentUser(userAuth); 
     });
 
     this.props.fetchProducts();
@@ -55,14 +48,14 @@ class App extends Component {
   return (
       <Router>
         <ScrollToTop />
-        <TopBar currentUser={this.state.currentUser}/>
+        <TopBar />
         <Routes />
       </Router>
   );     
  }
 }
 
- const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
   products: state.data.products,
   categories: state.data.categories,
   cart: state.cart,
@@ -72,6 +65,7 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => ({
   fetchProducts: () => dispatch(fetchProducts()),
   fetchCategories: () => dispatch(fetchCategories()),
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
