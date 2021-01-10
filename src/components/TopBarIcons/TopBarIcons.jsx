@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { toggleCartHidden } from "../../redux/actions/action";
+import { selectCartItemsCount } from "../../redux/selectors/cart.selectors";
 
 import SearchIcon from '../../images/ic_search.svg'
 import LoginIcon from '../../images/ic_login.svg'
@@ -10,7 +11,7 @@ import CartIcon from '../../images/ic_cart.svg'
 
 import "./TopBarIcons.scss";
 
-const TopBarIcons = ({ cart, toggleCartHidden }) => {
+const TopBarIcons = ({ itemCount, toggleCartHidden }) => {
   return (
     <div className="TopBarIcons">
       <button className="TopBarIcons_Button">
@@ -22,14 +23,14 @@ const TopBarIcons = ({ cart, toggleCartHidden }) => {
       </NavLink>
       <div className="TopBarIcons_Link" onClick={toggleCartHidden}>
         <img className="TopBarIcons_Icon" src={CartIcon} alt="Cart" />
-        <span className="TopBarIcons_Counter">{cart.length}</span>
+        <span className="TopBarIcons_Counter">{itemCount}</span>
       </div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  cart: state.cart.cartItems
+  itemCount: selectCartItemsCount(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
