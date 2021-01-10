@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import TopBar from '../TopBar/TopBar.jsx';
 import Routes from '../../Routes';
+import TopBar from '../TopBar/TopBar.jsx';
 import ScrollToTop from "../../utils/ScrollToTop";
+
 import { fetchProducts, fetchCategories, setCurrentUser } from '../../redux/actions/action';
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 

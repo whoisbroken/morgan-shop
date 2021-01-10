@@ -33,7 +33,7 @@ const Routes = () => {
         <Route path="/signup">
           <SignUp />
         </Route>
-        <Route path="/cart">
+        <Route exact path="/cart">
           <Cart />
         </Route>
         <Route path="/reset-pass">

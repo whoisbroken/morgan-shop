@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import { toggleCartHidden } from "../../redux/actions/action";
 import { selectCartItemsCount } from "../../redux/selectors/cart.selectors";
@@ -29,8 +30,8 @@ const TopBarIcons = ({ itemCount, toggleCartHidden }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  itemCount: selectCartItemsCount(state),
+const mapStateToProps = createStructuredSelector({
+  itemCount: selectCartItemsCount,
 });
 
 const mapDispatchToProps = (dispatch) => ({

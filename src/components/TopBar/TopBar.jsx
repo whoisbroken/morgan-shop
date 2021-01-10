@@ -1,12 +1,16 @@
 import React from 'react';
 import { NavLink, Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import { createStructuredSelector } from "reselect";
 
 import { auth } from "../../firebase/firebase.utils";
 
 import Navigation from '../Navigation/Navigation';
 import TopBarIcons from '../TopBarIcons/TopBarIcons';
 import CartDropdown from "../CartDropdown/CartDropdown";
+
+import { selectCurrentUser } from "../../redux/selectors/user.selectors";
+import { selectCartHidden } from "../../redux/selectors/cart.selectors";
 
 import Logo from '../../images/Logo.png'
 import LogoSmall from '../../images/Logo_small.png'
@@ -39,9 +43,9 @@ const TopBar = ({ currentUser, hidden }) => {
     );
 }
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
-  hidden: state.cart.hidden
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden,
 })
 
 
