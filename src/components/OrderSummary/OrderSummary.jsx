@@ -12,10 +12,10 @@ const OrderSummary = ({ cartItems, total }) => {
       <div className="OrderSummary">
         <h3 className="OrderSummary_Title">Order Summary</h3>
         {cartItems &&
-          cartItems.map(({ id, name, price }) => {
+          cartItems.map(({ id, name, price, quantity }) => {
             return (<div key={id} className="OrderSummary_Item">
               <span>{name}</span>
-              <span>£ {parseFloat(price).toFixed(2)}</span>
+              <span>{quantity} x £{parseFloat(price).toFixed(2)}</span>
             </div>
             )
           })
@@ -28,7 +28,7 @@ const OrderSummary = ({ cartItems, total }) => {
 
         <div className="OrderSummary_Total">
           <span>Estimated Total</span>
-          <span className="OrderSummary_TotalPrice">£ {(total + 10).toFixed(2)}</span>
+          <span className="OrderSummary_TotalPrice">£{(total + 10).toFixed(2)}</span>
         </div>
 
         <NavLink className="OrderSummary_Button_Link" to="/" >checkout</NavLink>
