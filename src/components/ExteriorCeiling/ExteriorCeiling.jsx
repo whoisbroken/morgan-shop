@@ -6,7 +6,7 @@ import AddIcon from "../../images/add.svg";
 import removeIcon from "../../images/remove.svg"
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import SortProducts from "../SortProducts/SortProducts";
-import { fetchProducts, fetchCategories, addToCart, removeFromCart} from '../../redux/actions/action';
+import { fetchProducts, fetchCategories } from '../../redux/actions/action';
 
 
 const ExteriorCeiling = (props) => {
@@ -95,8 +95,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchProducts: () => dispatch(fetchProducts()),
   fetchCategories: () => dispatch(fetchCategories()),
-  addToCart: (product) => dispatch(addToCart(product)),
-  removeFromCart: (id) => dispatch(removeFromCart(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExteriorCeiling);

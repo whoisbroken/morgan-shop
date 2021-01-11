@@ -3,14 +3,9 @@ import  { connect } from 'react-redux';
 
 import SortProducts from "../SortProducts/SortProducts";
 import ProductsList from "../ProductsList/ProductsList.jsx";
-import { fetchProducts, removeFromCart, showMoreProducts } from '../../redux/actions/action';
+// import { fetchProducts, removeFromCart, showMoreProducts } from '../../redux/actions/action';
 
 const Products = (props) => {
-  
-  const handleRemoveFromCart = (id) => {
-    props.removeFromCart(id)
-  };
-
     return (
     <div>
       <SortProducts /> 
@@ -37,10 +32,10 @@ const mapStateToProps = (state) => ({
   productsListSize: state.data.productsListSize
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchProducts: () => dispatch(fetchProducts()),
-  removeFromCart: (id) => dispatch(removeFromCart(id)),
-  showMoreProducts: (value) => dispatch(showMoreProducts(value)),
-})
+// const mapDispatchToProps = (dispatch) => ({
+//   fetchProducts: () => dispatch(fetchProducts()),
+//   removeFromCart: (id) => dispatch(removeFromCart(id)),
+//   showMoreProducts: (value) => dispatch(showMoreProducts(value)),
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps)(Products);

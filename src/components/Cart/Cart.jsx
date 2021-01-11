@@ -6,7 +6,6 @@ import EmptyCart from "../../pages/EmptyCart/EmptyCart";
 import OrderSummary from "../OrderSummary/OrderSummary";
 import CartItem from "../CartItem/CartItem";
 
-import { removeFromCart, increaseQuantity, decreaseQuantity } from '../../redux/actions/action';
 import { selectCartItems, selectCartTotal } from "../../redux/selectors/cart.selectors";
 
 import "./Cart.style.scss";
@@ -40,11 +39,5 @@ const mapStateToProps = createStructuredSelector({
   total: selectCartTotal,
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  removeFromCart: (id) => dispatch(removeFromCart(id)),
-  increaseQuantity: (id, count) => dispatch(increaseQuantity(id, count)),
-  decreaseQuantity: (id) => dispatch(decreaseQuantity(id)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps)(Cart);
 

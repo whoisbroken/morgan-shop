@@ -41,14 +41,19 @@ export const fetchCategories = () => {
 };
 
 // Cart
-export const addToCart = (item) => ({
-  type: ACTION_TYPES.ADD_TO_CART,
-  payload: item,
+export const addItem = (item) => ({
+  type: ACTION_TYPES.ADD_ITEM,
+  payload: item
 })
 
-export const removeFromCart = (id) => ({
-  type: ACTION_TYPES.REMOVE_FROM_CART,
-  payload: id
+export const removeItem = (item) => ({
+  type: ACTION_TYPES.REMOVE_ITEM,
+  payload: item
+})
+
+export const clearItemFromCart = (item) => ({
+  type: ACTION_TYPES.CLEAR_ITEM_FROM_CART,
+  payload: item
 })
 
 //ShowMoreProducts
@@ -74,11 +79,13 @@ export const decreaseQuantity = (productId) => ({
   payload: {productId}
 })
 
+// setting current user
 export const setCurrentUser = (user) => ({
   type: ACTION_TYPES.SET_CURRENT_USER,
   payload: user,
 })
 
+//toggle cart dropdown
 export const toggleCartHidden = () => ({
   type: ACTION_TYPES.TOGGLE_CART_HIDDEN,
 })

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import  { connect } from 'react-redux';
 
-import { addToCart } from '../../redux/actions/action';
+import { addItem } from '../../redux/actions/action';
 
 import AddIcon from "../../images/add.svg";
 import removeIcon from "../../images/remove.svg";
@@ -47,7 +47,7 @@ const ProductsList = (props) => {
                     <button
                       className='ProductsList_Item_Button'
                       alt='symbol'
-                      onClick={() => props.addToCart(product)}
+                      onClick={() => props.addItem(product)}
                     >
                       <img src={AddIcon} alt="add" />
                     </button>
@@ -81,7 +81,7 @@ const ProductsList = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  addToCart: (item) => dispatch(addToCart(item)),
+  addItem: (item) => dispatch(addItem(item)),
 })
 
 export default connect(null, mapDispatchToProps)(ProductsList);
