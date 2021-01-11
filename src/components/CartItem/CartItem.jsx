@@ -1,13 +1,17 @@
 import React from 'react';
-
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import IconClose from "../../images/ic_close.svg";
 import IconPlus from "../../images/ic_plus.svg";
 import IconMinus from "../../images/ic_minus.svg";
 
+import { selectCategory } from "../../redux/selectors/category.selectors";
+
 import "./CartItem.style.scss";
 
-const CartItem = ({ item: { id, image, alias, name, price } }) => {
+const CartItem = ({ item: { id, image, alias, name, price, categoryId }, category }) => {
+  console.log(categoryId, category)
   return (
     <li className="Cart_Item" key={id}>
       <img className="Cart_Picture" src={`https://morgan-shop.herokuapp.com${image}`} alt={alias} />
@@ -15,7 +19,9 @@ const CartItem = ({ item: { id, image, alias, name, price } }) => {
         <div className="Cart_Header">
           <div className="Cart_Info">
             <div className="Cart_Category">
-
+              {
+                category.map(category => category.id === categoryId ? <span key={id}>{category.title}</span> : null )
+              }
             </div>
             <div className="Cart_Name">{name}</div>
           </div>
@@ -49,4 +55,8 @@ const CartItem = ({ item: { id, image, alias, name, price } }) => {
   );
 };
 
-export default CartItem;
+const mapStateToProps = createStructuredSelector({
+  category: selectCategory,
+})
+
+export default connect(mapStateToProps)(CartItem);
