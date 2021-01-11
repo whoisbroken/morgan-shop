@@ -1,57 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import  { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from "reselect";
 
-import { addItem } from '../../redux/actions/action';
+import { addItem, showMoreProducts } from '../../redux/actions/action';
+import { selectProduct, selectProductsSizeNumber } from "../../redux/selectors/data.selectors";
 
 import AddIcon from "../../images/add.svg";
 import removeIcon from "../../images/remove.svg";
 
 import "./ProductsList.scss";
 
-const ProductsList = (props) => {
-//  const [sortBy, setSortBy] = useState(props.sortProducts.value)
+const ProductsList = ({ products, productsListSize, addItem, showMoreProducts }) => {
+  //  const [sortBy, setSortBy] = useState(props.sortProducts.value)
 
-//   if (props.products) {
-//       if (sortBy === "hightToLow") props.products.sort((a, b) => b.price - a.price)
-//       else if (sortBy === "lowToHight") props.products.sort((a, b) => a.price - b.price)
-//       else if (sortBy === "sortNewness") props.products.sort((a, b) => {
-//           let dataA = new Date(a.timeStamp)
-//           let dataB = new Date(b.timeStamp)
-//           return dataB - dataA
-//       })
-//   }
+  //   if (props.products) {
+  //       if (sortBy === "hightToLow") props.products.sort((a, b) => b.price - a.price)
+  //       else if (sortBy === "lowToHight") props.products.sort((a, b) => a.price - b.price)
+  //       else if (sortBy === "sortNewness") props.products.sort((a, b) => {
+  //           let dataA = new Date(a.timeStamp)
+  //           let dataB = new Date(b.timeStamp)
+  //           return dataB - dataA
+  //       })
+  //   }
 
-//   useEffect(() => {
-//       setSortBy(props.sortProducts.value)
-//       return () => {
-//           setSortBy("")
-//       }
-//   }, [props.sortProducts.value])
+  //   useEffect(() => {
+  //       setSortBy(props.sortProducts.value)
+  //       return () => {
+  //           setSortBy("")
+  //       }
+  //   }, [props.sortProducts.value])
 
   return (
     <div>
       <ul className="ProductsList_List" >
-        { props.products.length !== 0 ? 
-          props.products.slice(0, props.productsListSize).map(product => {
+        {products.length ?
+          products.slice(0, productsListSize).map(product => {
             return (
               <li className="ProductsList_Item" key={product.id}>
-                {/* {
-                  props.cart.find(item => item.id === product.id) ?
-                    <button
-                      className='ProductsList_Item_Button'
-                      alt='symbol'
-                      onClick={() => props.handleRemoveFromCart(product.id)}
-                    >
-                      <img src={removeIcon} alt="remove" />
-                    </button> : */}
-                    <button
-                      className='ProductsList_Item_Button'
-                      alt='symbol'
-                      onClick={() => props.addItem(product)}
-                    >
-                      <img src={AddIcon} alt="add" />
-                    </button>
-                {/* // } */}
+                <button
+                  className='ProductsList_Item_Button'
+                  alt='symbol'
+                  onClick={() => addItem(product)}
+                >
+                  <img src={AddIcon} alt="add" />
+                </button>
                 <img className="ProductsList_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt="" />
                 <div className="ProductsList_Box">
                   <p className="ProductsList_Name">{product.name}</p>
@@ -59,29 +51,35 @@ const ProductsList = (props) => {
                 </div>
               </li>
             )
-          }) : null
-            // props.fetchProducts()
+          })
+          : null
         }
       </ul>
-      {props.products.length <= props.productsListSize ? 
-          <button 
-            className="ProductsList_Button">
-              Roll up
-          </button> 
-          :
-          <button 
-            className="ProductsList_Button"
-            onClick={() => props.showMoreProducts(props.productsListSize)} >
-              Show more
-          </button> 
-        }
+      {products.length <= productsListSize ?
+        <button
+          className="ProductsList_Button">
+          Roll up
+          </button>
+        :
+        <button
+          className="ProductsList_Button"
+          onClick={() => showMoreProducts(productsListSize)} >
+          show more
+          </button>
+      }
     </div>
   );
-  
+
 };
+
+const mapStateToProps = createStructuredSelector({
+  products: selectProduct,
+  productsListSize: selectProductsSizeNumber
+})
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
+  showMoreProducts: (value) => dispatch(showMoreProducts(value)),
 })
 
-export default connect(null, mapDispatchToProps)(ProductsList);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);

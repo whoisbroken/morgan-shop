@@ -7,7 +7,7 @@ import IconPlus from "../../images/ic_plus.svg";
 import IconMinus from "../../images/ic_minus.svg";
 
 import { clearItemFromCart, addItem, removeItem } from "../../redux/actions/action";
-import { selectCategory } from "../../redux/selectors/category.selectors";
+import { selectCategory } from "../../redux/selectors/data.selectors";
 
 import "./CartItem.style.scss";
 

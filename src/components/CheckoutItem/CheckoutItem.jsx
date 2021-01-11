@@ -8,7 +8,10 @@ const CheckoutItem = ({ item: { image, alias, name, price, quantity } }) => {
       <img src={`https://morgan-shop.herokuapp.com${image}`} alt={alias} />
       <div className="Item_Details">
         <span className="Item_Name">{name}</span>
-        <span className="Item_Price">{quantity} x £{parseFloat(price).toFixed(2)}</span>
+        <div className="Item_Summary">
+          <span className="Item_Count">{quantity} x </span>
+          <span className="Item_Price">£{parseFloat(price).toFixed(2)}</span>
+        </div>
       </div>
     </div>
   );

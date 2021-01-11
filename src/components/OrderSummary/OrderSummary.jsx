@@ -5,6 +5,8 @@ import { createStructuredSelector } from "reselect";
 
 import { selectCartItems, selectCartTotal } from "../../redux/selectors/cart.selectors";
 
+import CustomButton from "../custom-button/custom-button";
+
 import "./OrderSummary.style.scss";
 
 const OrderSummary = ({ cartItems, total }) => {
@@ -35,7 +37,9 @@ const OrderSummary = ({ cartItems, total }) => {
           <span className="OrderSummary_TotalPrice">£{(total + EXPRESS_DELIVERY).toFixed(2)}</span>
         </div>
 
-        <NavLink className="OrderSummary_Button_Link" to="/" >checkout</NavLink>
+        <CustomButton >
+          <NavLink to="/" >checkout</NavLink>
+        </CustomButton>
         <NavLink className="OrderSummary_Link" to="/" >Continue shopping</NavLink>
       </div>
     )

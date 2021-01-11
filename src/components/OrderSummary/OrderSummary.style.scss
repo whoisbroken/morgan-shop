@@ -79,10 +79,13 @@
     &_Button_Link {
       width: 100%;
       margin-bottom: 12px;
-
+    }
+    &_Item {
+      display: none;
     }
 
-    &_Link {
+    &_Link { 
+      margin-top: 10px;
       display: block;
       text-align: center;
       text-decoration-line: underline;
