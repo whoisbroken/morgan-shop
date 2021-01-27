@@ -11,7 +11,7 @@ import removeIcon from "../../images/remove.svg";
 
 import "./ProductsList.scss";
 
-const ProductsList = ({ products, productsListSize, addItem, removeItem, showMoreProducts, cartItems }) => {
+const ProductsList = ({ categoryId, products, productsListSize, addItem, removeItem, showMoreProducts, cartItems }) => {
   //  const [sortBy, setSortBy] = useState(props.sortProducts.value)
 
   //   if (props.products) {
@@ -31,38 +31,43 @@ const ProductsList = ({ products, productsListSize, addItem, removeItem, showMor
   //       }
   //   }, [props.sortProducts.value])
 
+
   return (
     <div>
       <ul className="ProductsList_List" >
         {products.length ? (
-          products.slice(0, productsListSize).map(product => {
-            return (
-              <li className="ProductsList_Item" key={product.id}>
-                {cartItems.find(item => item.id === product.id) ? (
+          products.map(product => {
+            if(product.categoryId === categoryId) {
+              return (
+                <li className="ProductsList_Item" key={product.id}>
+                  {cartItems.find(item => item.id === product.id) ? (
+                      <button
+                        className='ProductsList_Item_Button'
+                        alt='symbol'
+                        onClick={() => removeItem(product)}
+                      >
+                      <img src={removeIcon} alt="add" />
+                    </button>
+                    ) : (
                     <button
                       className='ProductsList_Item_Button'
                       alt='symbol'
-                      onClick={() => removeItem(product)}
+                      onClick={() => addItem(product)}
                     >
-                    <img src={removeIcon} alt="add" />
-                  </button>
-                  ) : (
-                  <button
-                    className='ProductsList_Item_Button'
-                    alt='symbol'
-                    onClick={() => addItem(product)}
-                  >
-                    <img src={addIcon} alt="remove" />
-                  </button> )
-                }
-                <img className="ProductsList_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt="" />
-                <div className="ProductsList_Box">
-                  <p className="ProductsList_Name">{product.name}</p>
-                  <p className="ProductsList_Price">{+ product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
-                </div>
-              </li>
-            )
-          })
+                      <img src={addIcon} alt="remove" />
+                    </button> )
+                  }
+                  <img className="ProductsList_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt="" />
+                  <div className="ProductsList_Box">
+                    <p className="ProductsList_Name">{product.name}</p>
+                    <p className="ProductsList_Price">{+ product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
+                  </div>
+                </li>
+              )
+            }
+             
+            }
+          )
           ) : null
         }
       </ul>

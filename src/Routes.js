@@ -1,5 +1,9 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
+import { selectCategory } from "./redux/selectors/data.selectors";
 
 import TableLamps from "./components/TableLamps/TableLamps";
 import FloorLamps from "./components/FloorLamps/FloorLamps";
@@ -10,16 +14,23 @@ import SignUp from "./pages/SignUp/SignUp";
 import Cart from "./components/Cart/Cart";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import Main from './components/Main/Main.jsx';
+import Products from './components/Products/Products';
 import HomePage from "./pages/Homepage/Homepage.jsx";
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
-const Routes = () => {
+const Routes = ({ categories }) => {
   return ( 
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route exact path='/cart' component={Cart} />
-
-        <Route path="/table-lamps">
+        {categories.map(item => {
+          return (
+            <Route path={`/${item.alias}`} key={item.id}>
+              <Products id={item.id}/>
+            </Route>
+          )
+        })}
+        {/* <Route path="/table-lamps">
           <TableLamps />
         </Route>
         <Route path="/floor-lamps">
@@ -30,7 +41,7 @@ const Routes = () => {
         </Route>
         <Route path="/interior-ceiling">
           <InteriorCeiling />
-        </Route>
+        </Route> */}
         <Route path="/login">
           <Login />
         </Route>
@@ -50,4 +61,8 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+const mapStateToProps = createStructuredSelector({
+  categories: selectCategory,
+})
+
+export default connect(mapStateToProps)(Routes);

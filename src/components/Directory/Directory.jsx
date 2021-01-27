@@ -8,11 +8,10 @@ import MenuItem from '../MenuItem/MenuItem';
 
 import './Directory.styles.scss';
 
-const Directory = ({ category }) => {
-  console.log(category)
+const Directory = ({ categories }) => {
       return (
         <div className='directory-menu'>
-          {category.map(({ title, image, id, alias }) => (
+          {categories.map(({ title, image, id, alias }) => (
             <MenuItem key={id} title={title} image={image} alias={alias} />
           ))}
         </div>
@@ -20,7 +19,7 @@ const Directory = ({ category }) => {
 }
 
 const mapStateToProps = createStructuredSelector({
-  category: selectCategory,
+  categories: selectCategory,
 })
 
 

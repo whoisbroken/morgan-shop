@@ -3,11 +3,11 @@ import React from 'react';
 import SortProducts from "../SortProducts/SortProducts";
 import ProductsList from "../ProductsList/ProductsList.jsx";
 
-const Products = () => {
+const Products = ({ id }) => {
   return (
     <div>
       <SortProducts /> 
-      <ProductsList />
+      <ProductsList categoryId={id} />
     </div>
   );
 
