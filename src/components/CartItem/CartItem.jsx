@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+import { clearItemFromCart, addItem, removeItem } from "../../redux/actions/action";
+import { selectCategory } from "../../redux/selectors/data.selectors";
+
 import IconClose from "../../images/ic_close.svg";
 import IconPlus from "../../images/ic_plus.svg";
 import IconMinus from "../../images/ic_minus.svg";
-
-import { clearItemFromCart, addItem, removeItem } from "../../redux/actions/action";
-import { selectCategory } from "../../redux/selectors/data.selectors";
 
 import "./CartItem.style.scss";
 
@@ -21,8 +21,11 @@ const CartItem = ({ item, category, clearItem, addItem, removeItem }) => {
         <div className="Cart_Header">
           <div className="Cart_Info">
             <div className="Cart_Category">
-              {
-                category.map(category => category.id === categoryId ? <span key={id}>{category.title}</span> : null )
+              {category.map(category => 
+                              category.id === categoryId ? ( 
+                                <span key={id} >{category.title}</span> 
+                              ) : null 
+                            )
               }
             </div>
             <div className="Cart_Name">{name}</div>

@@ -10,11 +10,15 @@ import SignUp from "./pages/SignUp/SignUp";
 import Cart from "./components/Cart/Cart";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import Main from './components/Main/Main.jsx';
+import HomePage from "./pages/Homepage/Homepage.jsx";
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 const Routes = () => {
   return ( 
       <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route exact path='/cart' component={Cart} />
+
         <Route path="/table-lamps">
           <TableLamps />
         </Route>
@@ -33,15 +37,12 @@ const Routes = () => {
         <Route path="/signup">
           <SignUp />
         </Route>
-        <Route exact path="/cart">
-          <Cart />
-        </Route>
         <Route path="/reset-pass">
           <ResetPassword />
         </Route>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Main />
-        </Route>
+        </Route> */}
         <Route path="*">
           <NotFoundPage />
         </Route>

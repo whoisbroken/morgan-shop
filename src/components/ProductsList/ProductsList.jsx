@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from "reselect";
 
-import { addItem, showMoreProducts } from '../../redux/actions/action';
+import { addItem, removeItem, showMoreProducts } from '../../redux/actions/action';
 import { selectProduct, selectProductsSizeNumber } from "../../redux/selectors/data.selectors";
+import { selectCartItems } from "../../redux/selectors/cart.selectors";
 
-import AddIcon from "../../images/add.svg";
+import addIcon from "../../images/add.svg";
 import removeIcon from "../../images/remove.svg";
 
 import "./ProductsList.scss";
 
-const ProductsList = ({ products, productsListSize, addItem, showMoreProducts }) => {
+const ProductsList = ({ products, productsListSize, addItem, removeItem, showMoreProducts, cartItems }) => {
   //  const [sortBy, setSortBy] = useState(props.sortProducts.value)
 
   //   if (props.products) {
@@ -33,17 +34,27 @@ const ProductsList = ({ products, productsListSize, addItem, showMoreProducts })
   return (
     <div>
       <ul className="ProductsList_List" >
-        {products.length ?
+        {products.length ? (
           products.slice(0, productsListSize).map(product => {
             return (
               <li className="ProductsList_Item" key={product.id}>
-                <button
-                  className='ProductsList_Item_Button'
-                  alt='symbol'
-                  onClick={() => addItem(product)}
-                >
-                  <img src={AddIcon} alt="add" />
-                </button>
+                {cartItems.find(item => item.id === product.id) ? (
+                    <button
+                      className='ProductsList_Item_Button'
+                      alt='symbol'
+                      onClick={() => removeItem(product)}
+                    >
+                    <img src={removeIcon} alt="add" />
+                  </button>
+                  ) : (
+                  <button
+                    className='ProductsList_Item_Button'
+                    alt='symbol'
+                    onClick={() => addItem(product)}
+                  >
+                    <img src={addIcon} alt="remove" />
+                  </button> )
+                }
                 <img className="ProductsList_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt="" />
                 <div className="ProductsList_Box">
                   <p className="ProductsList_Name">{product.name}</p>
@@ -52,20 +63,21 @@ const ProductsList = ({ products, productsListSize, addItem, showMoreProducts })
               </li>
             )
           })
-          : null
+          ) : null
         }
       </ul>
-      {products.length <= productsListSize ?
-        <button
-          className="ProductsList_Button">
+      {products.length <= productsListSize ? (
+        <button className="ProductsList_Button">
           Roll up
-          </button>
-        :
+        </button>
+        ) : (
         <button
           className="ProductsList_Button"
-          onClick={() => showMoreProducts(productsListSize)} >
+          onClick={() => showMoreProducts(productsListSize)} 
+        >
           show more
-          </button>
+        </button> 
+        )
       }
     </div>
   );
@@ -74,11 +86,13 @@ const ProductsList = ({ products, productsListSize, addItem, showMoreProducts })
 
 const mapStateToProps = createStructuredSelector({
   products: selectProduct,
-  productsListSize: selectProductsSizeNumber
+  productsListSize: selectProductsSizeNumber,
+  cartItems: selectCartItems,
 })
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
+  removeItem: (item) => dispatch(removeItem(item)),
   showMoreProducts: (value) => dispatch(showMoreProducts(value)),
 })
 
