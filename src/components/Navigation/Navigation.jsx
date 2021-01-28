@@ -1,49 +1,41 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
+import { selectCategory } from "../../redux/selectors/data.selectors";
+import { categoryFilter } from "../../redux/actions/action";
+
 import "./Navigation.scss";
 
-const Navigation = () => {
+const Navigation = ({ categories, categoryFilter }) => {
   return (
-      <nav className="Nav">
-        <ul className="Nav_List">
-          <li className="Nav_Item">
-            <NavLink 
-              className="Nav_Link" 
-              to="/interior-ceiling"
+    <nav className="Nav">
+      <ul className="Nav_List">
+        {categories.length === 0 ? <div>Load</div> : categories.map(({ title, alias, id }) => (
+          <li className="Nav_Item" key={id}>
+            <NavLink
+              className="Nav_Link"
+              to={`/${alias}`} 
               activeClassName="Nav_Link_active"
+              onClick={() => categoryFilter(id)}
             >
-            Interior ceiling</NavLink>
+              {title}
+            </NavLink>
           </li>
-          <li className="Nav_Item">
-            <NavLink 
-              className="Nav_Link" 
-              to="/floor-lamps"
-              activeClassName="Nav_Link_active"
-
-            >Floor lamps</NavLink>
-          </li>
-          <li className="Nav_Item">
-            <NavLink 
-              className="Nav_Link" 
-              to="/exterior-ceiling"
-              activeClassName="Nav_Link_active"
-
-            >
-            Exterior ceilings</NavLink>
-          </li>
-          <li className="Nav_Item">
-            <NavLink 
-              className="Nav_Link" 
-              to="/table-lamps"
-              activeClassName="Nav_Link_active"
-
-            >
-            Table lamps</NavLink>
-          </li>
-        </ul>
-      </nav>
+        ))}
+      </ul>
+    </nav>
   );
 };
 
-export default Navigation;
+const mapStateToProps = createStructuredSelector({
+  categories: selectCategory,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  categoryFilter: (id) => dispatch(categoryFilter(id)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

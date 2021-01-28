@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Directory from '../../components/Directory/Directory';
-import Products from '../../components/Products/Products';
+import Products from '../../components/Products/Products.jsx';
 
 import './Homepage.styles.scss';
 

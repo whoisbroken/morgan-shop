@@ -10,7 +10,6 @@ const Products = ({ id }) => {
       <ProductsList categoryId={id} />
     </div>
   );
-
 };
 
 

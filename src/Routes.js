@@ -14,7 +14,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import Cart from "./components/Cart/Cart";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import Main from './components/Main/Main.jsx';
-import Products from './components/Products/Products';
+import Products from './components/Products/Products.jsx';
 import HomePage from "./pages/Homepage/Homepage.jsx";
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
@@ -23,10 +23,10 @@ const Routes = ({ categories }) => {
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route exact path='/cart' component={Cart} />
-        {categories.map(item => {
+        {categories.map(category => {
           return (
-            <Route path={`/${item.alias}`} key={item.id}>
-              <Products id={item.id}/>
+            <Route path={`/${category.alias}`} key={category.id}>
+              <Products />
             </Route>
           )
         })}

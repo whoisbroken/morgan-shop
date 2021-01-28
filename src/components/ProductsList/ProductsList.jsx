@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from "reselect";
 
 import { addItem, removeItem, showMoreProducts } from '../../redux/actions/action';
-import { selectProduct, selectProductsSizeNumber } from "../../redux/selectors/data.selectors";
+import { selectProductsSizeNumber } from "../../redux/selectors/data.selectors";
+import { selectCategoryFilter } from "../../redux/selectors/categoryFilterId.selectors";
 import { selectCartItems } from "../../redux/selectors/cart.selectors";
 
 import addIcon from "../../images/add.svg";
@@ -37,25 +38,24 @@ const ProductsList = ({ categoryId, products, productsListSize, addItem, removeI
       <ul className="ProductsList_List" >
         {products.length ? (
           products.map(product => {
-            if(product.categoryId === categoryId) {
               return (
                 <li className="ProductsList_Item" key={product.id}>
                   {cartItems.find(item => item.id === product.id) ? (
-                      <button
-                        className='ProductsList_Item_Button'
-                        alt='symbol'
-                        onClick={() => removeItem(product)}
-                      >
-                      <img src={removeIcon} alt="add" />
-                    </button>
-                    ) : (
                     <button
                       className='ProductsList_Item_Button'
                       alt='symbol'
-                      onClick={() => addItem(product)}
+                      onClick={() => removeItem(product)}
                     >
-                      <img src={addIcon} alt="remove" />
-                    </button> )
+                      <img src={removeIcon} alt="add" />
+                    </button>
+                  ) : (
+                      <button
+                        className='ProductsList_Item_Button'
+                        alt='symbol'
+                        onClick={() => addItem(product)}
+                      >
+                        <img src={addIcon} alt="remove" />
+                      </button>)
                   }
                   <img className="ProductsList_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt="" />
                   <div className="ProductsList_Box">
@@ -64,24 +64,21 @@ const ProductsList = ({ categoryId, products, productsListSize, addItem, removeI
                   </div>
                 </li>
               )
-            }
-             
-            }
-          )
-          ) : null
+            })
+        ) : null
         }
       </ul>
       {products.length <= productsListSize ? (
         <button className="ProductsList_Button">
           Roll up
         </button>
-        ) : (
-        <button
-          className="ProductsList_Button"
-          onClick={() => showMoreProducts(productsListSize)} 
-        >
-          show more
-        </button> 
+      ) : (
+          <button
+            className="ProductsList_Button"
+            onClick={() => showMoreProducts(productsListSize)}
+          >
+            show more
+          </button>
         )
       }
     </div>
@@ -90,7 +87,7 @@ const ProductsList = ({ categoryId, products, productsListSize, addItem, removeI
 };
 
 const mapStateToProps = createStructuredSelector({
-  products: selectProduct,
+  products: selectCategoryFilter,
   productsListSize: selectProductsSizeNumber,
   cartItems: selectCartItems,
 })

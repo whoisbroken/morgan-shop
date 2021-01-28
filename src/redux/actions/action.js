@@ -40,6 +40,12 @@ export const fetchCategories = () => {
   }
 };
 
+// Filter products by category
+export const categoryFilter = (categoryId) => ({
+  type: ACTION_TYPES.SET_CATEGORY_FILTER,
+  payload: categoryId
+})
+
 // Cart
 export const addItem = (item) => ({
   type: ACTION_TYPES.ADD_ITEM,
