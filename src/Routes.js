@@ -5,18 +5,13 @@ import { createStructuredSelector } from "reselect";
 
 import { selectCategory } from "./redux/selectors/data.selectors";
 
-import TableLamps from "./components/TableLamps/TableLamps";
-import FloorLamps from "./components/FloorLamps/FloorLamps";
-import ExteriorCeiling from "./components/ExteriorCeiling/ExteriorCeiling";
-import InteriorCeiling from "./components/InteriorCeiling/InteriorCeiling";
+import HomePage from "./pages/Homepage/Homepage.jsx";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
-import Cart from "./components/Cart/Cart";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
-import Main from './components/Main/Main.jsx';
-import Products from './components/Products/Products.jsx';
-import HomePage from "./pages/Homepage/Homepage.jsx";
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import Cart from "./components/Cart/Cart";
+import Products from './components/Products/Products.jsx';
 
 const Routes = ({ categories }) => {
   return ( 
@@ -30,18 +25,6 @@ const Routes = ({ categories }) => {
             </Route>
           )
         })}
-        {/* <Route path="/table-lamps">
-          <TableLamps />
-        </Route>
-        <Route path="/floor-lamps">
-          <FloorLamps />
-        </Route>
-        <Route path="/exterior-ceiling">
-          <ExteriorCeiling />
-        </Route>
-        <Route path="/interior-ceiling">
-          <InteriorCeiling />
-        </Route> */}
         <Route path="/login">
           <Login />
         </Route>
@@ -51,9 +34,6 @@ const Routes = ({ categories }) => {
         <Route path="/reset-pass">
           <ResetPassword />
         </Route>
-        {/* <Route exact path="/">
-          <Main />
-        </Route> */}
         <Route path="*">
           <NotFoundPage />
         </Route>
