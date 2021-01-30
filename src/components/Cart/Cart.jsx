@@ -12,7 +12,7 @@ import "./Cart.style.scss";
 
 const Cart = ({ cartItems }) => {
   return (
-    <div className="Cart">
+    <main className="Cart">
       <div className="Cart_Container Container">
         {
           cartItems.length === 0 
@@ -30,7 +30,7 @@ const Cart = ({ cartItems }) => {
             </div>
         }
       </div>
-    </div>
+    </main>
   );
 }
 

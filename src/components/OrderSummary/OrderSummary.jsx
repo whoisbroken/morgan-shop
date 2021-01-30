@@ -13,7 +13,7 @@ const OrderSummary = ({ cartItems, total }) => {
   const EXPRESS_DELIVERY = 10;
 
   return (
-      <div className="OrderSummary">
+      <section className="OrderSummary">
         <h3 className="OrderSummary_Title">Order Summary</h3>
         {
           cartItems &&
@@ -41,7 +41,7 @@ const OrderSummary = ({ cartItems, total }) => {
           <NavLink to="/" >checkout</NavLink>
         </CustomButton>
         <NavLink className="OrderSummary_Link" to="/" >Continue shopping</NavLink>
-      </div>
+      </section>
     )
 };
 

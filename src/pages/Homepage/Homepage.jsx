@@ -1,17 +1,17 @@
 import React from 'react';
 
 import Directory from '../../components/Directory/Directory';
-import Products from '../../components/Products/Products.jsx';
+import Main from '../../components/Main/Main.jsx';
 
 import './Homepage.styles.scss';
 
 const HomePage = () => (
-  <div className='Homepage'>
+  <main className='Homepage'>
     <div className="Homepage_Container Container">
       <Directory />
-      <Products />
+      <Main />
     </div>
-  </div>
+  </main>
 );
 
 export default HomePage;

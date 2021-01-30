@@ -6,7 +6,7 @@ import NotFoundPageImg from '../../images/404.png';
 
 const NotFoundPage = () => {
   return (
-    <div>
+    <main className="NotFoundPage">
       <div className="NotFoundPage_Container Container">
       <div className="NotFoundPage_CustomNumber">
         <h2 className="NotFoundPage_Char">4</h2>
@@ -18,7 +18,7 @@ const NotFoundPage = () => {
           home page
         </NavLink>
       </div>
-    </div>
+    </main>
   );
 };
 

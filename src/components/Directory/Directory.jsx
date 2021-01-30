@@ -10,11 +10,11 @@ import './Directory.styles.scss';
 
 const Directory = ({ categories }) => {
       return (
-        <div className='Directory_Menu'>
+        <section className='Directory_Menu'>
           {categories.length === 0 ? <div>Load</div> : categories.map(item => (
             <MenuItem key={item.id} {...item} />
           ))}
-        </div>
+        </section>
       );
 }
 

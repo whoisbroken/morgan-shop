@@ -6,12 +6,12 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 class Login extends Component {
   render() {
     return (
-      <div className="Login">
+      <main className="Login">
         <div className="Login_Container Container">
           <h2 className="Login_Title">LOGIN</h2>
           <LoginForm />
         </div>
-      </div>
+      </main>
     );
   }
 }

@@ -26,28 +26,30 @@ class ResetPassword extends React.Component {
     this.setState({ [name]: value });
   };
   render() {
-  return (
-    <div className="ResetPassword_Container Container">
-      <h2 className="ResetPassword_Title">RESET YOUR PASSWORD</h2>
-      <form className="ResetPassword">
-        <p className="ResetPassword_Text">Enter the email address for your Morgan account and we’ll send a single-use password reset link.</p>
-        <p className="ResetPassword_Text">This link will expire after 24 hours.</p>
-        <FormInput 
-          name='email'
-          type='email'
-          handleChange={this.handleChange}
-          value={this.state.email}
-          label='Email'
-          required
-        />
-        <CustomButton type="submit">SEND A PASSWORD RESET LINK</CustomButton>
-        <NavLink className="ResetPassword_Link" to="/login">
-          Back to sign in
-        </NavLink>
-      </form>
-    </div>
-  );
-};
+    return (
+      <main className="ResetPassword">
+        <div className="ResetPassword_Container Container">
+          <h2 className="ResetPassword_Title">RESET YOUR PASSWORD</h2>
+          <form className="ResetPassword_Form">
+            <p className="ResetPassword_Text">Enter the email address for your Morgan account and we’ll send a single-use password reset link.</p>
+            <p className="ResetPassword_Text">This link will expire after 24 hours.</p>
+            <FormInput
+              name='email'
+              type='email'
+              handleChange={this.handleChange}
+              value={this.state.email}
+              label='Email'
+              required
+            />
+            <CustomButton type="submit">SEND A PASSWORD RESET LINK</CustomButton>
+            <NavLink className="ResetPassword_Link" to="/login">
+              Back to sign in
+            </NavLink>
+          </form>
+        </div>
+      </main>
+    );
+  };
 }
 
 export default ResetPassword;

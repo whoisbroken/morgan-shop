@@ -13,7 +13,7 @@ import "./CartDropdown.style.scss";
 
 const CartDropdown = ({ cartItems, dispatch }) => {
   return (
-    <div className="Cart_Dropdown">
+    <section className="Cart_Dropdown">
       <div className="Cart_Dropdown-List">
         {
           cartItems.length 
@@ -24,7 +24,7 @@ const CartDropdown = ({ cartItems, dispatch }) => {
       <CustomButton >
         <NavLink onClick={() => dispatch(toggleCartHidden())} to="/cart">GO TO CHECKOUT</NavLink>
       </CustomButton>
-    </div>
+    </section>
   );
 };
 
