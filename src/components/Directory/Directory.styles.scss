@@ -1,6 +1,37 @@
-.directory-menu {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+@import "../../constants/Variables.scss";
+
+.Directory_Menu {
+  display: grid;
+  grid-template-rows: 323px 323px;
+  grid-template-columns: 326px 326px 468px;
+  grid-gap: 8px;
+}
+
+@media (max-width: 1190px) {
+  .Directory_Menu {
+    grid-template-columns: 326px 326px 326px;
+  }
+}
+
+@media (max-width: 992px) {
+  .Directory_Menu {
+    grid-template-rows: 220px 220px;
+    grid-template-columns: 216px 240px 250px;
+    grid-gap: 6px;
+  }
+}
+
+@media(max-width: 767px) {
+  .Directory_Menu {
+    grid-template-rows: 220px 220px 220px;
+    grid-template-columns: 49% 49%;
+  }
+}
+
+@media (max-width: 323px) {
+  .Directory_Menu {
+    grid-template-rows: 152px 164px 164px;
+    grid-template-columns: 49% 50%;
+    grid-gap: 4px;
+  }
 }

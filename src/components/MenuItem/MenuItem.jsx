@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
 import { connect } from "react-redux";
 
 import { categoryFilter } from "../../redux/actions/action";
@@ -19,10 +18,7 @@ const MenuItem = ({ categoryFilter, title, image, history, alias, match, id }) =
           backgroundImage: `url(https://morgan-shop.herokuapp.com${image})`
         }}
       />
-      <div className='content'>
-        <h1 className='title'>{title.toUpperCase()}</h1>
-        <span className='subtitle'>SHOP NOW</span>
-      </div>
+      <h1 className="content">{title} </h1>
     </div>
 )};
 

@@ -4,10 +4,6 @@ import { NavLink } from "react-router-dom";
 import "./Breadcrumbs.scss";
 
 const Breadcrumbs = ({ categories, id }) => {
-
-  console.log(categories);
-  console.log(id);
-
   const categoryIndex = categories ? categories.findIndex(category => category.id === id) : null ;
 
   return (

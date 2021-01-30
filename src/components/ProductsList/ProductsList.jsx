@@ -12,7 +12,7 @@ import removeIcon from "../../images/remove.svg";
 
 import "./ProductsList.scss";
 
-const ProductsList = ({ categoryId, products, productsListSize, addItem, removeItem, showMoreProducts, cartItems }) => {
+const ProductsList = ({ products, productsListSize, addItem, removeItem, showMoreProducts, cartItems }) => {
   //  const [sortBy, setSortBy] = useState(props.sortProducts.value)
 
   //   if (props.products) {
@@ -49,15 +49,16 @@ const ProductsList = ({ categoryId, products, productsListSize, addItem, removeI
                       <img src={removeIcon} alt="add" />
                     </button>
                   ) : (
-                      <button
-                        className='ProductsList_Item_Button'
-                        alt='symbol'
-                        onClick={() => addItem(product)}
-                      >
-                        <img src={addIcon} alt="remove" />
-                      </button>)
+                    <button
+                      className='ProductsList_Item_Button'
+                      alt='symbol'
+                      onClick={() => addItem(product)}
+                    >
+                      <img src={addIcon} alt="remove" />
+                    </button>
+                  )
                   }
-                  <img className="ProductsList_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt="" />
+                  <img className="ProductsList_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt={product.name} />
                   <div className="ProductsList_Box">
                     <p className="ProductsList_Name">{product.name}</p>
                     <p className="ProductsList_Price">{+ product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
@@ -72,7 +73,7 @@ const ProductsList = ({ categoryId, products, productsListSize, addItem, removeI
         <button className="ProductsList_Button">
           Roll up
         </button>
-      ) : (
+        ) : (
           <button
             className="ProductsList_Button"
             onClick={() => showMoreProducts(productsListSize)}
@@ -83,19 +84,18 @@ const ProductsList = ({ categoryId, products, productsListSize, addItem, removeI
       }
     </div>
   );
-
 };
 
 const mapStateToProps = createStructuredSelector({
   products: selectCategoryFilter,
   productsListSize: selectProductsSizeNumber,
   cartItems: selectCartItems,
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
   removeItem: (item) => dispatch(removeItem(item)),
   showMoreProducts: (value) => dispatch(showMoreProducts(value)),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);
