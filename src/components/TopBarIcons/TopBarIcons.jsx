@@ -13,23 +13,31 @@ import CartIcon from '../../images/ic_cart.svg'
 
 import "./TopBarIcons.scss";
 
-const TopBarIcons = ({ currentUser, itemCount, toggleCartHidden }) => {
+const TopBarIcons = ({ itemCount, toggleCartHidden }) => {
   return (
     <div className="TopBarIcons">
       <button className="TopBarIcons_Button">
         <img className="TopBarIcons_Icon" src={SearchIcon} alt='Search' />
       </button>
-      <NavLink className="TopBarIcons_Link" to="/login"
-        activeClassName="TopBarIcons_Link_active">
+      <NavLink 
+        className="TopBarIcons_Link" 
+        to="/login"
+        activeClassName="TopBarIcons_Link_active"
+      >
         <img className="TopBarIcons_Icon" src={LoginIcon} alt="Login" />
-        {/* {
-          currentUser ? <span className="option">{currentUser.currentUser.displayName}</span> : null
-        } */}
       </NavLink>
-      <div className="TopBarIcons_Link" onClick={toggleCartHidden}>
+      <NavLink 
+        className="TopBarIcons_Link" 
+        to="/cart"
+        onClick={(e) => {
+          e.preventDefault();
+          toggleCartHidden();
+        }}
+        activeClassName="TopBarIcons_Link_active"
+      >
         <img className="TopBarIcons_Icon" src={CartIcon} alt="Cart" />
         <span className="TopBarIcons_Counter">{itemCount}</span>
-      </div>
+      </NavLink>
     </div>
   );
 };

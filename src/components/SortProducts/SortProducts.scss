@@ -1,5 +1,8 @@
+@import "../../constants/Variables.scss";
 
 .SortProduct {
+  margin-top: 26px;
+
   &_Title {
     margin-right: 12px;
   }
@@ -8,7 +11,7 @@
     outline:none;
     font-family: "Poppins";
     font-weight: 500;
-    color: #121212;
+    color: $black;
   }
   &_Option {
     cursor: pointer;

@@ -14,7 +14,6 @@ import "./Products.styles.scss";
 
 const Products = ({ products, productsListSize, addItem, removeItem, showMoreProducts, cartItems }) => {
   //  const [sortBy, setSortBy] = useState(props.sortProducts.value)
-
   //   if (props.products) {
   //       if (sortBy === "hightToLow") props.products.sort((a, b) => b.price - a.price)
   //       else if (sortBy === "lowToHight") props.products.sort((a, b) => a.price - b.price)
@@ -32,41 +31,41 @@ const Products = ({ products, productsListSize, addItem, removeItem, showMorePro
   //       }
   //   }, [props.sortProducts.value])
 
-
   return (
     <section className="Products">
       <ul className="ProductsList">
         {products.length ? (
-          products.map(product => {
-              return (
-                <li className="ProductsList_Item" key={product.id}>
-                  {cartItems.find(item => item.id === product.id) ? (
-                    <button
-                      className='ProductsList_Item_Button'
-                      alt='symbol'
-                      onClick={() => removeItem(product)}
-                    >
-                      <img src={removeIcon} alt="add" />
-                    </button>
-                  ) : (
-                    <button
-                      className='ProductsList_Item_Button'
-                      alt='symbol'
-                      onClick={() => addItem(product)}
-                    >
-                      <img src={addIcon} alt="remove" />
-                    </button>
-                  )
-                  }
-                  <img className="ProductsList_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt={product.name} />
-                  <div className="ProductsList_Box">
-                    <p className="ProductsList_Name">{product.name}</p>
-                    <p className="ProductsList_Price">{+ product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
-                  </div>
-                </li>
-              )
-            })
-        ) : null
+          products.slice(0, productsListSize)
+                  .map(product => {
+                    return (
+                      <li className="ProductsList_Item" key={product.id}>
+                        {cartItems.find(item => item.id === product.id) ? (
+                          <button
+                            className='ProductsList_Item_Button'
+                            alt='symbol'
+                            onClick={() => removeItem(product)}
+                          >
+                            <img src={removeIcon} alt="add" />
+                          </button>
+                        ) : (
+                          <button
+                            className='ProductsList_Item_Button'
+                            alt='symbol'
+                            onClick={() => addItem(product)}
+                          >
+                            <img src={addIcon} alt="remove" />
+                          </button>
+                        )
+                        }
+                        <img className="ProductsList_Img" src={`https://morgan-shop.herokuapp.com${product.image}`} alt={product.name} />
+                        <div className="ProductsList_Box">
+                          <p className="ProductsList_Name">{product.name}</p>
+                          <p className="ProductsList_Price">{+ product.price ? `£` + parseFloat(product.price).toFixed(2) : null}</p>
+                        </div>
+                      </li>
+                    )
+                  })
+              ) : null
         }
       </ul>
       {products.length <= productsListSize ? (

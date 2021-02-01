@@ -6,14 +6,13 @@
 .ProductsList {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   padding: 16px 0 24px;
   margin-left: -16px;
 
   &_Item {
     background: $whiteGray;
-    flex-basis: calc(25% - 16px);
-    margin-left: 16px;
-    margin-bottom: 16px;
+    flex: 0 1 calc(25% - 1em);
     position: relative;
     max-width: 272px;
 
@@ -84,6 +83,8 @@
     &_Item {
       max-width: 144px;
       margin-left: 8px;
+      
+      flex: 0 1 calc(50% - 1em);
     }
 
     &_Img {

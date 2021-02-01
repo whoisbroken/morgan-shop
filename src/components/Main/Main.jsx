@@ -8,13 +8,12 @@ import "./Main.styles.scss";
 const Main = () => {
   return (
     <main className="Main">
-      <div className="Main_Container Container">
+      <div className="Main_Container">
         <SortProducts /> 
         <Products />
       </div>
     </main>
   );
 };
-
 
 export default Main;
