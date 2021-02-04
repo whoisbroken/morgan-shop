@@ -3,9 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import "./Breadcrumbs.scss";
 
-const Breadcrumbs = ({ categories, id }) => {
-  const categoryIndex = categories ? categories.findIndex(category => category.id === id) : null ;
-
+const Breadcrumbs = ({ category }) => {
   return (
     <div className="Breadcrumbs">
       <NavLink className="Breadcrumbs_Link" to="/">
@@ -13,11 +11,7 @@ const Breadcrumbs = ({ categories, id }) => {
       </NavLink>
       <p className="Breadcrumbs_Arrow">{">"}</p>
       <NavLink className="Breadcrumbs_Link" to="#">
-        {
-          categoryIndex >= 0 ? 
-          <span>{categories[categoryIndex].title}</span> :
-          <span>Load category</span>
-        }
+        {category.title}
       </NavLink>
     </div>
   );

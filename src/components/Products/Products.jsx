@@ -42,18 +42,16 @@ const Products = ({ products, productsListSize, addItem, removeItem, showMorePro
                         {cartItems.find(item => item.id === product.id) ? (
                           <button
                             className='ProductsList_Item_Button'
-                            alt='symbol'
                             onClick={() => removeItem(product)}
                           >
-                            <img src={removeIcon} alt="add" />
+                            <img src={removeIcon} alt="remove" />
                           </button>
                         ) : (
                           <button
                             className='ProductsList_Item_Button'
-                            alt='symbol'
                             onClick={() => addItem(product)}
                           >
-                            <img src={addIcon} alt="remove" />
+                            <img src={addIcon} alt="add" />
                           </button>
                         )
                         }

@@ -12,6 +12,8 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Cart from "./components/Cart/Cart";
 import Products from './components/Products/Products.jsx';
+import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs.jsx';
+
 
 const Routes = ({ categories }) => {
   return ( 
@@ -21,7 +23,12 @@ const Routes = ({ categories }) => {
         {categories.map(category => {
           return (
             <Route path={`/${category.alias}`} key={category.id}>
-              <Products />
+              <section className="Category">
+                <div className="Category_Container Container">
+                  <Breadcrumbs category={category}/>
+                  <Products />
+                </div>
+              </section>
             </Route>
           )
         })}
