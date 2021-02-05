@@ -11,7 +11,7 @@ import SearchIcon from '../../images/ic_search.svg'
 import LoginIcon from '../../images/ic_login.svg'
 import CartIcon from '../../images/ic_cart.svg'
 
-import "./TopBarIcons.scss";
+import "./TopBarIcons.styles.scss";
 
 const TopBarIcons = ({ itemCount, toggleCartHidden }) => {
   return (

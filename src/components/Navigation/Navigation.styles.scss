@@ -22,20 +22,26 @@
     padding: 0 16px;
 
     &::before {
-      content: "";
+      content: '';
+      display: block;
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
+      width: 0%;
       height: 2px;
       background-color: $black;
-      opacity: 0;
-      transition: .3s ease;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: .5s ease all;
+    }
+    &:hover {
+      &::before {
+        width: 100%;
+      }
     }
 
     &.Nav_Link_active {
       &::before {
-        opacity: 1;
+        width: 100%;
       }
     }
   }

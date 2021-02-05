@@ -7,17 +7,17 @@ import { createStructuredSelector } from "reselect";
 import { selectCategory } from "../../redux/selectors/data.selectors";
 import { categoryFilter } from "../../redux/actions/action";
 
-import "./Navigation.scss";
+import "./Navigation.styles.scss";
 
 const Navigation = ({ categories, categoryFilter }) => {
   return (
     <nav className="Nav">
       <ul className="Nav_List">
-        {categories.length === 0 ? <div>Load</div> : categories.map(({ title, alias, id }) => (
+        {categories.length === 0 ? <div>Load categories</div> : categories.map(({ title, alias, id }) => (
           <li className="Nav_Item" key={id}>
             <NavLink
               className="Nav_Link"
-              to={`/${alias}`} 
+              to={`/${alias}`}
               activeClassName="Nav_Link_active"
               onClick={() => categoryFilter(id)}
             >
