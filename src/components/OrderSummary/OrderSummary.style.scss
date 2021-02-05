@@ -2,9 +2,8 @@
   width: 100%;
   max-width: 260px;
   height: 100%;
-  min-height: 272px;
+  min-height: 245px;
   padding: 10px;
-
   border: 1px solid #DEDEDE;
   font-size: 12px;
   line-height: 22px;
@@ -71,6 +70,7 @@
   .OrderSummary {
     border: none; 
     min-width: 100%;
+    min-height: 187px;
     
     &_Title {
       display: none;

@@ -15,8 +15,7 @@ const OrderSummary = ({ cartItems, total }) => {
   return (
       <section className="OrderSummary">
         <h3 className="OrderSummary_Title">Order Summary</h3>
-        {
-          cartItems &&
+        {cartItems &&
           cartItems.map(({ id, name, price, quantity }) => {
             return (
               <div key={id} className="OrderSummary_Item">
@@ -26,7 +25,6 @@ const OrderSummary = ({ cartItems, total }) => {
             )
           })
         }
-
         <div className="OrderSummary_Delivery">
           <span>Express Delivery </span>
           <span>£{EXPRESS_DELIVERY.toFixed(2)}</span>
@@ -36,8 +34,7 @@ const OrderSummary = ({ cartItems, total }) => {
           <span>Estimated Total</span>
           <span className="OrderSummary_TotalPrice">£{(total + EXPRESS_DELIVERY).toFixed(2)}</span>
         </div>
-
-        <CustomButton >
+        <CustomButton>
           <NavLink to="/" >checkout</NavLink>
         </CustomButton>
         <NavLink className="OrderSummary_Link" to="/" >Continue shopping</NavLink>

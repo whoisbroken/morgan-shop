@@ -5,9 +5,14 @@
     margin: 51px auto 24px;
     max-width: calc(1040px + 32px);
   }
+
   &_Content {
     display: flex;
-    justify-content: space-between;
+    min-height: 70vh;
+  }
+  &_List {
+    width: 100%;
+    margin-right: 60px;
   }
   &_Title {
     text-align: center;
@@ -16,7 +21,6 @@
     margin-bottom: 32px;
   }
   &_Item {
-    width: 656px;
     height: 185px;
     display: flex;
     margin-bottom: 24px;
@@ -115,9 +119,6 @@
     &_Container {
       max-width: calc(900px + 32px);
     }
-    &_Item {
-      max-width: 500px;
-    }
   }
 }
 
@@ -126,8 +127,8 @@
     &_Container {
       max-width: calc(750px + 32px);
     }
-    &_Item {
-      max-width: 430px;
+    &_List {
+      margin-right: 30px;
     }
   }
 }
@@ -141,9 +142,12 @@
     &_Content {
       flex-direction: column;
       align-items: center;
+      justify-content: space-between;
     }
     &_List {
+      width: 100%;
       margin-bottom: 61px;
+      margin-right: 0;
     }
   }
 }
