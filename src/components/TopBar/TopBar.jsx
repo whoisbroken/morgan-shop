@@ -29,10 +29,10 @@ const TopBar = ({ currentUser, hidden, categoryFilter }) => {
           </div>
           <NavLink className="TopBar_Link" to="/">
             <picture>
-              <source srcset={Logo} media="(min-width: 323px)" />
+              <source srcSet={Logo} media="(min-width: 323px)" />
               <img 
                 className="TopBar_Logo" 
-                srcset={mobileLogo}
+                srcSet={mobileLogo}
                 alt="Logo" 
                 onClick={() => categoryFilter("")} 
               />

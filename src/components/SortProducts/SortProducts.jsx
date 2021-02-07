@@ -1,28 +1,40 @@
-import { useDispatch } from "react-redux";
+import React from "react";
+import { connect, useDispatch } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-import "./SortProducts.scss";
 import { sortProducts } from "../../redux/actions/action";
+import { selectSortBy } from "../../redux/selectors/sort.selectors";
 
-const SortProducts = () => {
+import "./SortProducts.styles.scss";
+
+const SortProducts = ({ sort }) => {
   const dispatch = useDispatch();
 
   const handSelectChange = (e) => {
     const target = e.target;
     const value = target.value;
 
-    dispatch(sortProducts({ value }));
+    dispatch(sortProducts(value));
   };
 
   return (
-    <section className="SortProduct">
-      <span className="SortProduct_Title">Sort by:</span>
-      <select className="SortProduct_Select" onChange={handSelectChange}>
-        <option value="hightToLow" className="SortProduct_Option">Price hight to low</option>
-        <option value="lowToHight" className="SortProduct_Option">Price low to hight</option>
-        <option value="sortNewness" className="SortProduct_Option">Newness</option>
+    <section className="SortProducts">
+      <span className="SortProducts_Title">Sort by:</span>
+      <select 
+        className="SortProducts_Select" 
+        value={sort}
+        onChange={handSelectChange} 
+      >
+        <option value="hightToLow" className="SortProducts_Option">Price hight to low</option>
+        <option value="lowToHight" className="SortProducts_Option">Price low to hight</option>
+        <option value="newness" className="SortProducts_Option">Newness</option>
       </select>
     </section>
   )
 }
 
-export default SortProducts;
+const mapStateToProps = createStructuredSelector({
+  sort: selectSortBy,
+});
+
+export default connect(mapStateToProps, null)(SortProducts);
