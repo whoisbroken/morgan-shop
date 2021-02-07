@@ -11,8 +11,9 @@ import SignUp from "./pages/SignUp/SignUp";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Cart from "./components/Cart/Cart";
-import Products from './components/Products/Products.jsx';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs.jsx';
+import Products from './components/Products/Products.jsx';
+import SortProducts from "./components/SortProducts/SortProducts";
 
 
 const Routes = ({ categories }) => {
@@ -26,6 +27,7 @@ const Routes = ({ categories }) => {
               <section className="Category">
                 <div className="Category_Container Container">
                   <Breadcrumbs category={category}/>
+                  <SortProducts />
                   <Products />
                 </div>
               </section>

@@ -1,28 +1,28 @@
 @import "../../constants/Variables.scss";
 
-.SortProduct {
+.SortProducts {
   margin-top: 26px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  color: $black;
 
   &_Title {
     margin-right: 12px;
   }
   &_Select {
+    font-family: "Poppins";
     border: none;
     outline:none;
-    font-family: "Poppins";
-    font-weight: 500;
-    color: $black;
+    background: inherit;
   }
   &_Option {
-    cursor: pointer;
     border: none;
   }
 }
 
 @media (max-width: 323px) {
-  .SortProduct {
-    display: flex;
-    align-items: center;
+  .SortProducts {
     margin-top: 12px;
     &_Title {
       font-size: 12px;
@@ -31,7 +31,6 @@
     }
     &_Select {
       font-size: 12px;
-      line-height: 22px;
       margin-bottom: 1px;
     }
     &_Option {
