@@ -1,0 +1,40 @@
+.EmptyCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 368px;
+
+  &_Title {
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: uppercase;
+  }
+
+  &_Img {
+    margin-bottom: 24px;
+  }
+  
+  &_Link {
+    width: 100%;
+  }
+
+  &_Info {
+    margin-bottom: 36px;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+  .EmptyCart {
+    min-width: 296px;
+
+    &_Info {
+      font-size: 12px;
+      line-height: 22px;
+      margin-bottom: 16px;
+    }
+  }
+}

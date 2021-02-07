@@ -21,7 +21,7 @@ import "./TopBar.styles.scss";
 const TopBar = ({ currentUser, hidden, categoryFilter }) => {
     return (
       <header className="TopBar">
-        <div className="TopBar_Container Container">
+        <div className="TopBar_Container">
           <div className="TopBar_BurgerMenu">
             <span></span>
             <span></span>
@@ -39,11 +39,11 @@ const TopBar = ({ currentUser, hidden, categoryFilter }) => {
             </picture>
           </NavLink>
           <Navigation />
-          {
+          {/* {
             currentUser ?
             <div className="option" onClick={() => auth.signOut()}>SIGN OUT</div> :
             <Link className="option" to="/login">SIGN IN</Link>
-          }
+          } */}
           <TopBarIcons />
         </div>
         { hidden ? null : <CartDropdown /> }

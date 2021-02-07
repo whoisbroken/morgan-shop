@@ -24,3 +24,10 @@
     background: $darkGray;
   }
 }
+
+@media (max-width: 400px) {
+  .custom-button {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+}
