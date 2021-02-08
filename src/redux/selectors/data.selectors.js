@@ -6,6 +6,8 @@ const selectCategories = state => state.data.categories;
 
 const selectProductsSize = state => state.data.productsListSize;
 
+export const selectShowNavMenu = state => state.data.showNavMenu;
+
 export const selectProduct = createSelector(
   [selectProducts],
   (products) => products
