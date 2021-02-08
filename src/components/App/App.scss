@@ -51,10 +51,14 @@ a {
   color: inherit;
 }
 
+button {
+  outline: none;
+}
+
 .Container {
   max-width: 1163px;
   padding: 0 15px;
-  margin: 0 auto;
+  margin: 84px auto 2%;
 }
 
 @media (max-width: 1190px) {

@@ -1,4 +1,3 @@
-
 @import "../../constants/Variables.scss";
 
 .Social_Button {
@@ -15,5 +14,14 @@
   & span {
     font-family: "Poppins", sans-serif;
     font-size: 14px;
+  }
+}
+@media (max-width: 400px) {
+  .Social_Button {
+    width: 142px;
+    padding: 6px 0;
+    & span {
+      display: none;
+    }
   }
 }

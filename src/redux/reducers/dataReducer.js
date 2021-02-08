@@ -5,6 +5,7 @@ const initialState = {
   categories: [],
   categoryFilterId: "",
   productsListSize: 12,
+  showNavMenu: false,
 }
 
 export const dataReducer = (state = initialState, action) => {
@@ -17,6 +18,8 @@ export const dataReducer = (state = initialState, action) => {
       return {...state, categoryFilterId: action.payload}
     case ACTION_TYPES.SHOW_MORE_PRODUCTS:
       return { ...state, productsListSize: action.payload}
+    case ACTION_TYPES.TOGGLE_NAV_MENU:
+      return { ...state, showNavMenu: !state.showNavMenu}
     default:
       return state;
   }

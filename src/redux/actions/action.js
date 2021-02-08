@@ -95,3 +95,8 @@ export const setCurrentUser = (user) => ({
 export const toggleCartHidden = () => ({
   type: ACTION_TYPES.TOGGLE_CART_HIDDEN,
 })
+
+//show nav menu
+export const toggleNavMenu = () => ({
+  type: ACTION_TYPES.TOGGLE_NAV_MENU,
+})
