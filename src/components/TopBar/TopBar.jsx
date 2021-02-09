@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
 import { createStructuredSelector } from "reselect";
 
-import { auth } from "../../firebase/firebase.utils";
+//import { auth } from "../../firebase/firebase.utils";
 
 import Navigation from '../Navigation/Navigation';
 import TopBarIcons from '../TopBarIcons/TopBarIcons';
@@ -34,7 +34,7 @@ const TopBar = ({ currentUser, hidden, categoryFilter, showNavMenu, toggleNavMen
         </button>
         <NavLink className="TopBar_Link" to="/">
           <picture>
-            <source srcSet={Logo} media="(min-width: 323px)" />
+            <source srcSet={mobileLogo} media="(max-width: 323px)" />
             <img
               className="TopBar_Logo"
               srcSet={Logo}
@@ -45,10 +45,10 @@ const TopBar = ({ currentUser, hidden, categoryFilter, showNavMenu, toggleNavMen
         </NavLink>
         <Navigation />
         {/* {
-            currentUser ?
-            <div className="option" onClick={() => auth.signOut()}>SIGN OUT</div> :
-            <Link className="option" to="/login">SIGN IN</Link>
-          } */}
+          currentUser ?
+          <div className="option" onClick={() => auth.signOut()}>SIGN OUT</div> :
+          <Link className="option" to="/login">SIGN IN</Link>
+        } */}
         <TopBarIcons />
       </div>
       { hidden ? null : <CartDropdown />}

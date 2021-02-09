@@ -13,7 +13,8 @@ import CartIcon from '../../images/ic_cart.svg'
 
 import "./TopBarIcons.styles.scss";
 
-const TopBarIcons = ({ itemCount, toggleCartHidden }) => {
+const TopBarIcons = ({ currentUser, itemCount, toggleCartHidden }) => {
+  console.log(currentUser);
   return (
     <div className="TopBarIcons">
       <button className="TopBarIcons_Button">
