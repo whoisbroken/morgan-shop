@@ -14,23 +14,25 @@ import removeIcon from "../../images/remove.svg";
 import "./Products.styles.scss";
 
 const Products = ({ products, productsListSize, sort, addItem, removeItem, showMoreProducts, cartItems }) => {
-   const [sortBy, setSortBy] = React.useState(sort)
-    if (products) {
-        if (sortBy === "hightToLow") products.sort((a, b) => b.price - a.price)
-        else if (sortBy === "lowToHight") products.sort((a, b) => a.price - b.price)
-        else if (sortBy === "newness") products.sort((a, b) => {
-            let dataA = new Date(a.timeStamp)
-            let dataB = new Date(b.timeStamp)
-            return dataB - dataA
-        })
-    }
+   
+  const [sortBy, setSortBy] = React.useState(sort)
 
-    React.useEffect(() => {
-        setSortBy(sort)
-        return () => {
-            setSortBy("")
-        }
-    }, [sort])
+  if (products) {
+      if (sortBy === "hightToLow") products.sort((a, b) => b.price - a.price)
+      else if (sortBy === "lowToHight") products.sort((a, b) => a.price - b.price)
+      else if (sortBy === "newness") products.sort((a, b) => {
+          let dataA = new Date(a.timeStamp)
+          let dataB = new Date(b.timeStamp)
+          return dataB - dataA
+      })
+  }
+
+  React.useEffect(() => {
+    setSortBy(sort)
+    return () => {
+        setSortBy("")
+    }
+  }, [sort])
 
   return (
     <section className="Products">
@@ -68,13 +70,20 @@ const Products = ({ products, productsListSize, sort, addItem, removeItem, showM
         }
       </ul>
       {products.length <= productsListSize ? (
-        <button className="ProductsList_Button">
+        <button 
+          className="ProductsList_Button"
+          onClick={() => window[`scrollTo`]({ top: 0, behavior: `smooth` })}
+        >
           Roll up
         </button>
         ) : (
           <button
             className="ProductsList_Button"
-            onClick={() => showMoreProducts(productsListSize)}
+            onClick={() => {
+              showMoreProducts(productsListSize);   
+				    	setTimeout(()=>{window.scrollTo(0, document.documentElement.scrollHeight)},80)
+              }
+            }
           >
             show more
           </button>
