@@ -15,6 +15,7 @@ import "./Navigation.styles.scss";
 const Navigation = ({ categories, categoryFilter, showNavMenu, toggleNavMenu }) => {
   return (
     <nav className="Nav" style={showNavMenu ? {transform: 'translateX(0)'} : null}>
+      <h2 className="Nav_Title">Products</h2>
       <ul className="Nav_List">
         {categories.length === 0 ? <div>Load categories</div> : categories.map(({ title, alias, id }) => (
           <li className="Nav_Item" key={id}>

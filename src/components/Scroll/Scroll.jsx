@@ -1,5 +1,7 @@
 import React from 'react';
 
+import arrow from "../../images/arrow_bottom.svg";
+
 import './Scroll.scss';
 
 const Scroll = ({ showBelow }) => {
@@ -21,16 +23,13 @@ const Scroll = ({ showBelow }) => {
     }
   })
 
-  const handleClick = () => {
-    window[`scrollTo`]({ top: 0, behavior: `smooth` })
-  }
-
   return (
     <button 
-      className="Scroll_Btn"
-      onClick={handleClick}
+      className={show ? "Scroll_Btn Scroll_Btn--active" :  "Scroll_Btn" }
+      onClick={show ? () => window.scrollTo(0, 0) : () => window.scrollTo(0, document.documentElement.scrollHeight)}
     >
-      { show ? "Top" : "Scroll" }
+			<span className="Scroll_Text">{show ? 'Top' : 'Scroll'}</span>
+      <img src={arrow} alt="Scroll_Arrow" className="Scroll_Arrow"/>
     </button>
   )
 }

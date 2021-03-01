@@ -5,6 +5,10 @@
   font-size: 0.875rem;
   flex-grow: 1;
 
+  &_Title {
+    display: none;
+  }
+
   &_List {
     display: flex;
     align-items: center;
@@ -64,6 +68,13 @@
     left: 0;
     width: 100%;
     transform: translateX(-100%);
+
+    &_Title {
+      display: block;
+      color: $darkGray;
+      padding: 0 25px;
+      font-size: 14px;
+    }
     
     &_List {
       flex-direction: column;

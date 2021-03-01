@@ -5,6 +5,7 @@
 html,
 body {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -19,7 +20,7 @@ body {
   font-weight: 400;
   color: $black;
   margin: 0;
-  background-color: #fafafa;
+  background-color: hsl(0, 0%, 98%);
 }
 
 h1,
