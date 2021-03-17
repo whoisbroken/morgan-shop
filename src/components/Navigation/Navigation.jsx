@@ -1,14 +1,10 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { selectCategory } from "../../redux/selectors/data.selectors";
-import { categoryFilter } from "../../redux/actions/action";
-
-import { selectShowNavMenu } from "../../redux/selectors/data.selectors";
-import { toggleNavMenu } from "../../redux/actions/action";
+import { selectCategory, selectShowNavMenu } from "../../redux/selectors/data.selectors";
+import { toggleNavMenu, categoryFilter } from "../../redux/actions/action";
 
 import "./Navigation.styles.scss";
 

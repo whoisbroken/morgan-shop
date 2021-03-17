@@ -1,5 +1,9 @@
 @import '../../constants/Variables.scss';
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .Nav {
   height: 65px;
   font-size: 0.875rem;
@@ -68,6 +72,7 @@
     left: 0;
     width: 100%;
     transform: translateX(-100%);
+    transition: .5s ease;
 
     &_Title {
       display: block;
