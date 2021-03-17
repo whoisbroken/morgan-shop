@@ -2,10 +2,11 @@ import { ACTION_TYPES } from '../actions/actionTypes';
 import { addItemToCart, removeItemFromCart } from "../utils/cart.utils";
 
 const InitialState = {
-    hidden: true,
     cartItems: [],
+    hidden: true,
+    showAddAlert: false,
+    showRemoveAlert: false,
 };
-
 
 export const cartReducer = (state = InitialState, action) => {
   switch (action.type) {
@@ -30,6 +31,18 @@ export const cartReducer = (state = InitialState, action) => {
         cartItems: state.cartItems.filter(
           cartItem => cartItem.id !== action.payload.id
         )
+      };
+    case ACTION_TYPES.SHOW_ADD_ALERT:
+      return {
+        ...state,
+        showAddAlert: true,
+        showRemoveAlert: false
+      };
+    case ACTION_TYPES.SHOW_REMOVE_ALERT:
+      return {
+        ...state,
+        showAddAlert: false,
+        showRemoveAlert: true,
       };
     default:
         return state;

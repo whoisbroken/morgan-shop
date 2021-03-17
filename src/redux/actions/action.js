@@ -57,6 +57,14 @@ export const removeItem = (item) => ({
   payload: item
 })
 
+export const showAddAlert = () => ({
+  type: ACTION_TYPES.SHOW_ADD_ALERT
+})
+
+export const showRemoveAlert = () => ({
+  type: ACTION_TYPES.SHOW_REMOVE_ALERT
+})
+
 export const clearItemFromCart = (item) => ({
   type: ACTION_TYPES.CLEAR_ITEM_FROM_CART,
   payload: item

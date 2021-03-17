@@ -31,3 +31,13 @@ export const selectCartTotal = createSelector(
       0
     )
 );
+
+export const selectShowAddAlert = createSelector(
+  [selectCart],
+  (cart) => cart.showAddAlert
+);
+
+export const selectShowRemoveAlert = createSelector(
+  [selectCart],
+  (cart) => cart.showRemoveAlert
+);
