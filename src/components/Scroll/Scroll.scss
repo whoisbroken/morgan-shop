@@ -26,6 +26,7 @@
   }
   &_Text {
     writing-mode: vertical-lr;
+    padding: 10px;
   }
   
   &_Arrow {
@@ -45,5 +46,13 @@
   
   100% {
     transform: translateY(0)
+  }
+}
+
+@media (max-width: 767px) {
+  .Scroll { 
+    &_Btn {
+      bottom: 0;
+    }
   }
 }
