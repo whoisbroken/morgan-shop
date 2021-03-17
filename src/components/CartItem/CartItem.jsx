@@ -5,9 +5,9 @@ import { createStructuredSelector } from "reselect";
 import { clearItemFromCart, addItem, removeItem } from "../../redux/actions/action";
 import { selectCategory } from "../../redux/selectors/data.selectors";
 
-import IconClose from "../../images/ic_close.svg";
-import IconPlus from "../../images/ic_plus.svg";
-import IconMinus from "../../images/ic_minus.svg";
+import IconClose from "./../../images/ic_close.svg";
+import IconPlus from "./../../images/ic_plus.svg";
+import IconMinus from "./../../images/ic_minus.svg";
 
 import "./CartItem.style.scss";
 

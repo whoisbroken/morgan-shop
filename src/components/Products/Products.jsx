@@ -11,8 +11,8 @@ import { selectCategoryFilter } from "../../redux/selectors/categoryFilterId.sel
 import { selectCartItems, selectShowAddAlert, selectShowRemoveAlert } from "../../redux/selectors/cart.selectors";
 import { selectSortBy } from "../../redux/selectors/sort.selectors";
 
-import addIcon from "../../images/add.svg";
-import removeIcon from "../../images/remove.svg";
+import addIcon from "./../../images/add.svg";
+import removeIcon from "./../../images/remove.svg";
 
 import "./Products.styles.scss";
 
