@@ -10,9 +10,9 @@ const Breadcrumbs = ({ category }) => {
         Products
       </NavLink>
       <p className="Breadcrumbs_Arrow">{">"}</p>
-      <NavLink className="Breadcrumbs_Link" to="#">
+      <span className="Breadcrumbs_Link">
         {category.title}
-      </NavLink>
+      </span>
     </div>
   );
 };

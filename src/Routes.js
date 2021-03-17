@@ -15,7 +15,6 @@ import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs.jsx';
 import Products from './components/Products/Products.jsx';
 import SortProducts from "./components/SortProducts/SortProducts";
 
-
 const Routes = ({ categories }) => {
   return ( 
       <Switch>
